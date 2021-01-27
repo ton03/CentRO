@@ -1,0 +1,5 @@
+min_group_id_to_connect: -1
+use_MD5_passwords: yes
+usercount_low: 20
+usercount_medium: 50
+usercount_high: 100

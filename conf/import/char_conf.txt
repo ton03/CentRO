@@ -1,0 +1,21 @@
+login_ip: 127.0.0.1
+char_ip: 192.168.2.19
+server_name: TaguRO
+wisp_server_name: TaguRO
+userid: TaguRO
+passwd: UloPaLang3InchesNa!
+
+start_point: iz_int,18,26:iz_int01,18,26:iz_int02,18,26:iz_int03,18,26:iz_int04,18,26
+start_point_pre: new_1-1,53,111:new_2-1,53,111:new_3-1,53,111:new_4-1,53,111:new_5-1,53,111
+start_point_doram: lasa_fild01,48,297
+start_items: 1201,1,2:2301,1,16
+start_items_doram: 1681,1,2:2301,1,16
+start_zeny: 0
+
+char_del_delay: 0
+
+pincode_enabled: no
+
+default_map: prontera
+default_map_x: 156
+default_map_y: 191

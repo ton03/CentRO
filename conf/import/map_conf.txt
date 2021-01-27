@@ -1,0 +1,4 @@
+char_ip: 127.0.0.1
+map_ip: 192.168.2.19
+userid: TaguRO
+passwd: UloPaLang3InchesNa!
