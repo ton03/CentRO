@@ -9,6 +9,8 @@
  * For detailed guidance on these check http://rathena.org/wiki/SRC/config/
  **/
 
-
+#ifndef PACKETVER
+	#define PACKETVER 20180620
+#endif
 
 #endif /* CONFIG_CUSTOM_DEFINES_PRE_HPP */
