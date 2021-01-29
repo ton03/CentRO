@@ -2,7 +2,7 @@ login_ip: 127.0.0.1
 server_name: TaguRO
 wisp_server_name: TaguRO
 userid: TaguRO
-passwd: UloPaLang3InchesNa!
+passwd: UloPaLang3InchesNa
 
 start_point: iz_int,18,26:iz_int01,18,26:iz_int02,18,26:iz_int03,18,26:iz_int04,18,26
 start_point_pre: new_1-1,53,111:new_2-1,53,111:new_3-1,53,111:new_4-1,53,111:new_5-1,53,111
