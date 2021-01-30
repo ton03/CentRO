@@ -11,6 +11,7 @@
 
 #ifndef PACKETVER
 	#define PACKETVER 20180620
+	#define PRERE
 #endif
 
 #endif /* CONFIG_CUSTOM_DEFINES_PRE_HPP */
