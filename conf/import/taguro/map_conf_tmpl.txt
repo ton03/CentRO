@@ -1,1 +1,1 @@
-map_ip: 192.168.2.19 // Set to WAN IP
+map_ip: 192.168.2.19 // Set to your WAN IP
