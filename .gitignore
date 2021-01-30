@@ -8,7 +8,7 @@
 .local.vimrc
 .ycm_extra_conf.py*
 Thumbs.db
-
+.vscode/
 # /
 /*_fifo
 /*.exe
