@@ -1,0 +1,166 @@
+//===== rAthena Script =======================================
+//= Floating Server Rates
+//===== By: ==================================================
+//= Lupus
+//===== Current Version: =====================================
+//= 1.0
+//===== Compatible With: =====================================
+//= rAthena Project
+//===== Description: =========================================
+//= It's a simply example of setbattleflag
+//= This script will change your server rates from 1x to 1.5x every 6 hours
+//= Note: It doesn't affect Card granted drops, MVP & Treasure Chests drops ^_-
+//=       It also doesn't affect CARD drops, because they are just 0.01%
+//===== Additional Comments: =================================
+//= You can make incredible scripts with 'setbattleflag'!
+//============================================================
+
+-	script	FloatingRates	-1,{
+
+	OnInit:
+	OnMon0400:
+	OnMon1000:
+	OnMon1600:
+	OnMon2200:
+	OnTue0400:
+	OnTue1000:
+	OnTue1600:
+	OnTue2200:
+	OnWed0400:
+	OnWed1000:
+	OnWed1600:
+	OnWed2200:
+	OnThu0400:
+	OnThu1000:
+	OnThu1600:
+	OnThu2200:
+	OnFri0400:
+	OnFri1000:
+	OnFri1600:
+	OnFri2200:
+	OnSat0400:
+	OnSat1000:
+	OnSat1600:
+	OnSat2200:
+	OnSun0400:
+	OnSun1000:
+	OnSun1600:
+	OnSun2200:
+		set $@brate,3000;
+		set $@jrate,3000;
+		set $@drate,300;
+		set $@dratecard,1500;
+		set $@dratemvpeq,300;
+		//Base exp
+		setbattleflag("base_exp_rate",$@brate);
+		//Job exp
+		setbattleflag("job_exp_rate",$@jrate);
+		//Drops
+		setbattleflag("item_rate_common",$@drate);
+		setbattleflag("item_rate_heal",$@drate);
+		setbattleflag("item_rate_use",$@drate);
+		setbattleflag("item_rate_use_boss",$@drate);
+		setbattleflag("item_rate_use_mvp",$@drate);
+		setbattleflag("item_rate_common_boss",$@drate);
+		setbattleflag("item_rate_common_mvp",$@drate);
+		setbattleflag("item_rate_heal_boss",$@drate);
+		setbattleflag("item_rate_heal_mvp",$@drate);
+		setbattleflag("item_rate_equip_boss",$@dratemvpeq);
+		setbattleflag("item_rate_equip_mvp",$@dratemvpeq);
+		setbattleflag("item_rate_card",$@dratecard);
+		setbattleflag("item_rate_equip",$@drate,true); // Apply new rates to configs set above
+		//we don't change card drops rate, because these values won't change them anyway
+	
+		announce "Rates are back to normal: Base:5.00x / Job:5.00x / Drop:3.00x / Cards: 2.00x / MVP Drops: 3.00x",bc_all,0xFF6060;
+		end;
+			
+	OnMon0200:
+	OnMon0800:
+	OnMon1400:
+	OnMon2000:
+	OnTue0200:
+	OnTue0800:
+	OnTue1400:
+	OnTue2000:
+	OnWed0200:
+	OnWed0800:
+	OnWed1400:
+	OnWed2000:
+	OnThu0200:
+	OnThu0800:
+	OnThu1400:
+	OnThu2000:
+	OnFri0200:
+	OnFri0800:
+	OnFri1400:
+	OnFri2000:
+		set $@brate,4000;
+		set $@jrate,4000;
+		set $@drate,400;
+        set $@drateequ,200;
+		set $@dratecard,300;
+        set $@dratecardmvp,200;
+		//Base exp
+		setbattleflag("base_exp_rate",$@brate);
+		//Job exp
+		setbattleflag("job_exp_rate",$@jrate);
+		//Drops
+		setbattleflag("item_rate_common",$@drate);
+		setbattleflag("item_rate_heal",$@drate);
+		setbattleflag("item_rate_use",$@drate);
+		setbattleflag("item_rate_use_boss",$@drate);
+		setbattleflag("item_rate_use_mvp",$@drate);
+		setbattleflag("item_rate_common_boss",$@drate);
+		setbattleflag("item_rate_common_mvp",$@drate);
+		setbattleflag("item_rate_heal_boss",$@drate);
+		setbattleflag("item_rate_heal_mvp",$@drate);
+		setbattleflag("item_rate_equip_boss",$@drateequ);
+		setbattleflag("item_rate_equip_mvp",$@drateequ);
+		setbattleflag("item_rate_card",$@dratecard);
+        setbattleflag("item_rate_card_mvp",$@dratecardmvp)
+		setbattleflag("item_rate_equip",$@drateequ,true); // Apply new rates to configs set above
+		//we don't change card drops rate, because these values won't change them anyway
+	
+		announce "Weekday Happy Hour! Increased rates: Base:7.00x / Job:7.00x / Drop:5.00x / Cards: 3.00x / MVP Drops: 5.00x",bc_all,0xFF6060;
+		end;
+		
+	OnSat0200:
+	OnSat0800:
+	OnSat1400:
+	OnSat2000:
+	OnSun0200:
+	OnSun0800:
+	OnSun1400:
+	OnSun2000:
+		set $@brate,5000;
+		set $@jrate,5000;
+		set $@drate,500;
+        set $@drateequ,300;
+		set $@dratecard,400;
+        set $@dratecardmvp,300;
+		//Base exp
+		setbattleflag("base_exp_rate",$@brate);
+		//Job exp
+		setbattleflag("job_exp_rate",$@jrate);
+		//Drops
+		setbattleflag("item_rate_common",$@drate);
+		setbattleflag("item_rate_heal",$@drate);
+		setbattleflag("item_rate_use",$@drate);
+		setbattleflag("item_rate_use_boss",$@drate);
+		setbattleflag("item_rate_use_mvp",$@drate);
+		setbattleflag("item_rate_common_boss",$@drate);
+		setbattleflag("item_rate_common_mvp",$@drate);
+		setbattleflag("item_rate_heal_boss",$@drate);
+		setbattleflag("item_rate_heal_mvp",$@drate);
+		setbattleflag("item_rate_equip_boss",$@drateequ);
+		setbattleflag("item_rate_equip_mvp",$@drateequ);
+		setbattleflag("item_rate_card",$@dratecard);
+        setbattleflag("item_rate_card_mvp",$@dratecardmvp)
+		setbattleflag("item_rate_equip",$@drate,true); // Apply new rates to configs set above
+		//we don't change card drops rate, because these values won't change them anyway
+	
+		announce "Weekend Happy Hour! Increased rates: Base:8.00x / Job:8.00x / Drop:6.00x / Cards: 6.00x / MVP Drops: 6.00x",bc_all,0xFF6060;
+		end;
+		
+	
+}
