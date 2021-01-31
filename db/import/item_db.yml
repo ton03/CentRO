@@ -31905,7 +31905,7 @@ Body:
       Shadow_Left_Accessory: true
     Refineable: true
     EquipScript: |
-      changebase roclass(eaclass()|EAJL_THIRD); setlook LOOK_BODY2,1;
+      changebase roclass(eaclass()|EAJL_THIRD); setlook LOOK_BODY2,2;
     UnEquipScript: |
       setlook LOOK_BODY2,0; changebase Class;
   - Id: 35063
