@@ -117,7 +117,7 @@
 		setbattleflag("item_rate_equip_boss",$@drateequ);
 		setbattleflag("item_rate_equip_mvp",$@drateequ);
 		setbattleflag("item_rate_card",$@dratecard);
-        setbattleflag("item_rate_card_mvp",$@dratecardmvp)
+        setbattleflag("item_rate_card_mvp",$@dratecardmvp);
 		setbattleflag("item_rate_equip",$@drateequ,true); // Apply new rates to configs set above
 		//we don't change card drops rate, because these values won't change them anyway
 	
@@ -155,7 +155,7 @@
 		setbattleflag("item_rate_equip_boss",$@drateequ);
 		setbattleflag("item_rate_equip_mvp",$@drateequ);
 		setbattleflag("item_rate_card",$@dratecard);
-        setbattleflag("item_rate_card_mvp",$@dratecardmvp)
+        setbattleflag("item_rate_card_mvp",$@dratecardmvp);
 		setbattleflag("item_rate_equip",$@drate,true); // Apply new rates to configs set above
 		//we don't change card drops rate, because these values won't change them anyway
 	
