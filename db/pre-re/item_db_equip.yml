@@ -8475,6 +8475,9 @@ Body:
       Knight: true
       Merchant: true
       Swordman: true
+      Sura: true
+      Monk: true
+      Acolyte: true
     Locations:
       Right_Hand: true
     WeaponLevel: 4
