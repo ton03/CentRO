@@ -8478,6 +8478,7 @@ Body:
       Sura: true
       Monk: true
       Acolyte: true
+      Priest: true
     Locations:
       Right_Hand: true
     WeaponLevel: 4
