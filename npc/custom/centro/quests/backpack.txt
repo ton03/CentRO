@@ -1,0 +1,395 @@
+//===== rAthena Script =======================================
+//= Poring Backpack Quest
+//===== By: ==================================================
+//= Tonn
+//===== Current Version: =====================================
+//= 1.0
+//===== Compatible With: =====================================
+//= rAthena Project
+//===== Description: =========================================
+//= Find porings, give jellopies, get reward
+//===== Additional Comments: =================================
+//= Only porings are implemented for now
+//= 
+//= Aling Puring: @warp arsenal 154 134
+//= Mr. Paparing: @warp aro_fild01 191 65
+//= Ms. Pepering: @warp aro_fild01 208 151
+//= Mr. Dadaring: @warp aro_fild02 166 281
+//= Mr. Dedering: @warp aro_fild02 366 346
+//= 
+//= Quest status (hex-like)
+//= ____1 - started quest
+//= ___1_ - started paparing
+//= ___2_ - rescued paparing
+//= __1__ - started pepering
+//= __2__ - rescued pepering
+//= _1___ - started dadaring
+//= _2___ - rescued dadaring
+//= 1____ - started dedering
+//= 2____ - rescued dedering
+//= 22221 - rescued everyone
+//= 22222 - finished quest!!
+//=
+//= Item IDs
+//= 35180 - Costume Upgraded Poring Bag
+//= 20507 - Costume Poring Bag
+//============================================================
+
+
+mid_camp,192,242,4	script	Reset Poring Quest	892,{
+  mes "[ Poring Bag Quest ]";
+  mes "Status: " + aq_poringbackpack;
+  if (select("Reset:Exit") == 1) {
+    set aq_poringbackpack, 0;
+    mes "Reset to 0";
+  }
+  close;
+}
+
+//============================================================
+//= Aling Puring
+//============================================================
+arsenal,154,134,4	script	Aling Puring	892,{
+  .@name$ = "[ ^800080Aling Puring^000000 ]";
+
+  debugmes sprintf("Poring bag quest status: %d", aq_poringbackpack);
+
+  // REWARD
+  .@reward = 35180;
+  .@oldbag = 20507;
+
+  // Have not started quest yet
+  if (!aq_poringbackpack) {
+    mes .@name$;
+    mes "*Sobs*";
+    emotion ET_CRY;
+
+    .@op = select("(Leave the poor old lady alone):What's wrong?");
+    clear;
+    switch (.@op) {
+      case 1:
+        mes .@name$;
+        mes "*Sobs in Tagalog*";
+        emotion ET_CRY;
+        close;
+      case 2:
+        mes .@name$;
+        mes "My porings have gone missing,";
+        mes "would you be able to help me?";
+    }
+
+    .@op = select("Sorry, I'm kinda busy:Sure thing!");
+    clear;
+    switch (.@op) {
+      case 1:
+        mes .@name$;
+        mes "*Sobs in Tagalog*";
+        mes "Ah, I see...";
+        emotion ET_CRY;
+        close;
+      case 2:
+        mes .@name$;
+        mes "Please, rescue my porings.";
+        mes "Feed them with ^FF0000jellopies^000000";
+        mes "so they may regain their strength";
+        mes "to come back to me.";
+        next;
+        mes .@name$;
+        mes "And I will reward you with a";
+        mes "^FF0000backpack^000000 to help you carry";
+        mes "more stuff.";
+        mes " ";
+        mes "But do note that";
+        mes "^FF0000only you alone can wear it^000000!";
+    }
+
+    .@op = select("Not worth my time:I need it!");
+    clear;
+    switch (.@op) {
+      case 1:
+        mes .@name$;
+        mes "*Sobs in Tagalog*";
+        emotion ET_CRY;
+        close;
+      case 2:
+        mes .@name$;
+        mes "Glad to hear that! I really appreciate the help!";
+        next;
+        mes .@name$;
+        mes "^C71585Mr. Paparing^000000 and ^C71585Ms. Pepering^000000";
+        mes "seem to have found themselves";
+        mes "lost in ^FF0000Arsenal field 01^000000!";
+        mes " ";
+        mes "Please rescue them!";
+        set aq_poringbackpack, 1;
+        close;
+    }
+
+  // Started quest
+  } else if (1 <= aq_poringbackpack && aq_poringbackpack < 221) {
+    mes .@name$;
+    mes "Please rescue my dear porings,";
+    mes "^C71585Mr. Paparing^000000 and ^C71585Ms. Pepering^000000,";
+    mes "in ^FF0000Arsenal field 01^000000!";
+    close;
+
+  // Finish quest!
+  } else if (aq_poringbackpack == 221) {
+    mes .@name$;
+    mes "You have done it, lad!";
+    next;
+    mes .@name$;
+    mes "Here is your well-deserved reward!";
+    if (countitem(.@oldbag)) {
+      delitem .@oldbag, 1; // Get rid of old backpack
+    }
+    getnameditem .@reward, strcharinfo(0);
+    set aq_poringbackpack, 222;
+    next;
+    mes .@name$;
+    mes "I hope you'll enjoy";
+    mes "your new ^FF0000backpack^000000!";
+    next;
+    mes .@name$;
+    mes "Though I'm starting to feel";
+    mes "like I'm gonna need your help";
+    mes "again soon...";
+    end;
+
+  // Already finished
+  } else if (aq_poringbackpack == 222) {
+    mes .@name$;
+    mes "Thank you for rescuing";
+    mes "my beloved porings!";
+    next;
+    mes .@name$;
+    mes "I hope you're enjoying";
+    mes "your new ^FF0000backpack^000000!";
+    next;
+    mes .@name$;
+    mes "Though I'm starting to feel";
+    mes "like I'm gonna need your help";
+    mes "again soon...";
+    close;
+
+    if (countitem(.@oldbag)) {
+      .@op = select("No worries:Actually, I have this backpack...");
+      clear;
+      switch (.@op) {
+        case 1:
+          close;
+        case 2:
+          mes .@name$;
+          mes "Ah, the useless one, I see.";
+          mes " ";
+          mes "If you want, I can get rid";
+          mes "of it for you. And I assume";
+          mes "you already have the new one";
+          mes "that I gave you before.";
+      }
+
+      .@op = select("Nevermind:Please get rid of it!");
+      clear;
+      switch (.@op) {
+        case 1:
+          mes .@name$;
+          mes "Suit yourself. See ya!";
+          close;
+        case 2:
+          mes .@name$;
+          mes "Done! See ya!";
+          delitem .@oldbag, 1;
+          close;
+      }
+    }
+  }
+  close;
+}
+
+//============================================================
+//= Mr. Paparing
+//============================================================
+aro_fild01,191,65,4	script	Mr. Paparing	909,{
+  function GetPBQStatus;
+  .@status = GetPBQStatus(aq_poringbackpack, 1);
+  .@name$ = "[ ^C71585Mr. Paparing^000000 ]";
+
+  .@item_req = 909;
+  .@item_cnt = 1000;
+
+  if (aq_poringbackpack < 1) {
+    mes .@name$;
+    mes "Huh?";
+    close;
+  } else if (.@status == 0) {
+    mes .@name$;
+    mes "^FF0000NO!!!^000000";
+    next;
+    mes .@name$;
+    mes "Just kidding, what do you want?";
+
+    .@op = select("Nothing:I've come to rescue you");
+    clear;
+    switch (.@op) {
+      case 1:
+        mes .@name$;
+        mes "Yeah, that's what I thought!";
+        mes "Scram!!!";
+        close;
+      case 2:
+        mes .@name$;
+        mes "Rescue me?";
+        mes "But what's in it for me?";
+        next;
+        mes .@name$;
+        mes "You know what,";
+        mes "if you give me ^FF0000" + .@item_cnt + " Jellopies^000000";
+        mes "I'll do whatever you want.";
+        set aq_poringbackpack, aq_poringbackpack + 10;
+        close;
+    }
+  } else if (.@status == 1) {
+    mes .@name$;
+    mes "Did you bring my";
+    mes "^FF0000" + .@item_cnt + " Jellopies^000000?";
+    next;
+    
+    .@op = select("Not yet:Here, now come back home!");
+    clear;
+    switch (.@op) {
+      case 1:
+        mes .@name$;
+        mes "Well, ain't you a slow one.";
+        close;
+      case 2:
+        if (countitem(.@item_req) < .@item_cnt) {
+          mes .@name$;
+          mes "Why you lyin'?";
+          close;
+        }
+        delitem .@item_req, .@item_cnt;
+        set aq_poringbackpack, aq_poringbackpack + 10;
+        mes .@name$;
+        mes "That's the stuff!";
+        close;
+    }
+  }
+  mes .@name$;
+  mes "I'm full...";
+  close;
+
+  function GetPBQStatus {
+    return (getarg(0) % (pow(10, getarg(1)) * 10)) / pow(10, getarg(1));
+  }
+}
+
+//============================================================
+//= Ms. Pepering
+//============================================================
+aro_fild01,208,151,0	script	Ms. Pepering	909,{
+  function GetPBQStatus;
+  .@status = GetPBQStatus(aq_poringbackpack, 2);
+  .@name$ = "[ ^C71585Ms. Pepering^000000 ]";
+
+  .@item_req = 909;
+  .@item_cnt = 1000;
+
+  if (aq_poringbackpack < 1) {
+    mes .@name$;
+    mes "Mmm... hmm...";
+    emotion ET_HUM;
+    close;
+  } else if (.@status == 0) {
+    mes .@name$;
+    mes "Hello, what brings you here?";
+
+    .@op = select("Nothing:I've come to rescue you");
+    clear;
+    switch (.@op) {
+      case 1:
+        mes .@name$;
+        mes "Alrighty, have a nice day!";
+        close;
+      case 2:
+        mes .@name$;
+        mes "Oh my,";
+        mes "I seem to have had way too";
+        mes "much fun with all the other";
+        mes "Porings here that I forgot";
+        mes "I haven't been home in a";
+        mes "long, long time!";
+        next;
+        mes "* Stomach growls *";
+        next;
+        mes .@name$;
+        mes "And I'm also really, really";
+        mes "h u n g r y !";
+        next;
+        mes .@name$;
+        mes "Would you happen to have";
+        mes "^FF0000" + .@item_cnt + " Jellopies^000000 that I can munch";
+        mes "before I come home?";
+    }
+    select("Okay, stay here!");
+    clear;
+    mes .@name$;
+    mes "Thank you, I'll be waiting!";
+    next;
+    mes "* Stomach growls *";
+    set aq_poringbackpack, aq_poringbackpack + 100;
+    close;
+  } else if (.@status == 1) {
+    mes .@name$;
+    mes "Oh, are you back with";
+    mes "^FF0000" + .@item_cnt + " Jellopies^000000?";
+    next;
+    
+    .@op = select("Not yet, hang in there!:Here you go");
+    clear;
+    switch (.@op) {
+      case 1:
+        mes .@name$;
+        mes "I'll wait for you!";
+        next;
+        mes "* Stomach growls *";
+        close;
+      case 2:
+        if (countitem(.@item_req) < .@item_cnt) {
+          mes .@name$;
+          mes "Heh, silly you.";
+          mes "Please come back when";
+          mes "you have enough.";
+          next;
+          mes "* Stomach growls *";
+          close;
+        }
+        delitem .@item_req, .@item_cnt;
+        set aq_poringbackpack, aq_poringbackpack + 100;
+        mes .@name$;
+        mes "Wow! Thank you so much!";
+        next;
+        mes "* munch *";
+        next;
+        mes "* munch, munch *";
+        next;
+        mes "* munch, munch, munch *";
+        next;
+        mes .@name$;
+        mes "Yum!";
+        mes " ";
+        mes "Oh, right, would you look at";
+        mes "the time. I need to get back!";
+        next;
+        mes .@name$;
+        mes "See ya!";
+        close;
+    }
+  }
+  mes .@name$;
+  mes "Yum!";
+  close;
+
+  function GetPBQStatus {
+    return (getarg(0) % (pow(10, getarg(1)) * 10)) / pow(10, getarg(1));
+  }
+}
