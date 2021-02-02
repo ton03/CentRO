@@ -1,5 +1,5 @@
 char_ip: 127.0.0.1
-userid: TaguRO
+userid: CentRO
 passwd: UloPaLang3InchesNa
 
-import: conf/import/taguro/map_conf.txt
+import: conf/import/centro/map_conf.txt

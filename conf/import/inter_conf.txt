@@ -1,21 +1,22 @@
 party_share_level: 99
 
-login_server_id: taguro
+login_server_id: centro
 login_server_pw: UloPaLang3InchesNa
-login_server_db: taguro
+login_server_db: centro
 
-ipban_db_id: taguro
+ipban_db_id: centro
 ipban_db_pw: UloPaLang3InchesNa
-ipban_db_db: taguro
+ipban_db_db: centro
 
-char_server_id: taguro
+char_server_id: centro
 char_server_pw: UloPaLang3InchesNa
-char_server_db: taguro
+char_server_db: centro
 
-map_server_id: taguro
+map_server_id: centro
 map_server_pw: UloPaLang3InchesNa
-map_server_db: taguro
+map_server_db: centro
 
-log_db_id: taguro
+log_db_id: centro
 log_db_pw: UloPaLang3InchesNa
-log_db_db: taguro
+log_db_db: centro
+

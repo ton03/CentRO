@@ -1,7 +1,7 @@
 login_ip: 127.0.0.1
-server_name: TaguRO
-wisp_server_name: TaguRO
-userid: TaguRO
+server_name: CentRO
+wisp_server_name: CentRO
+userid: CentRO
 passwd: UloPaLang3InchesNa
 
 start_point: iz_int,18,26:iz_int01,18,26:iz_int02,18,26:iz_int03,18,26:iz_int04,18,26
@@ -19,4 +19,5 @@ default_map: prontera
 default_map_x: 156
 default_map_y: 191
 
-import: conf/import/taguro/char_conf.txt
+import: conf/import/centro/char_conf.txt
+
