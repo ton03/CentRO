@@ -14,6 +14,8 @@
 #endif
 
 // Pre-renewal
-#define PRERE
+#ifndef PRERE
+	#define PRERE
+#endif
 
 #endif /* CONFIG_CUSTOM_DEFINES_PRE_HPP */
