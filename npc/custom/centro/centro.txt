@@ -1,0 +1,11 @@
+//WARPS TO INS
+centro,170,236,0	warp	totavern	3,2,cent_in01,58,182    //GOING TO THE TAVERN
+centro,117,232,0	warp	toequip	3,2,cent_in01,58,182        //GOING TO THE EQUIPMENT SHOP
+
+
+
+//NPCS
+centro,164,182,0	shop	Vendor from Milk Ranch#centro	90,519:-1   //MILK Vendor
+centro,182,198,0	shop	Butcher#centro	87,517:-1,528:-1            //BUTCHER
+centro,184,191,0	shop	Flower Lady#centro	90,712:-1,744:-1        //FLOWER LADY
+centro,182,181,4	shop	Pet Groomer#centro	125,537:-1,643:-1,10013:-1,10014:-1,554:-1,6114:-1,6113:-1,6110:-1,6115:-1,6100:-1,6098:-1,6112:-1,6104:-1,6108:-1,6111:-1,6095:-1,6099:-1,6096:-1,6097:-1,6094:-1      //PET STORE
