@@ -1142,11 +1142,12 @@ cent_in01
 cent_in02
 cent_wmill
 cen_chip01
-cen_pvp01
 cen_pvp01-1
 cen_pvp01-2
 cen_pvp01-3
 cen_pvp01-4
+cen_pvp02
+cen_pvp03-1
 gld_base1
 gld_base1-1
 gld_base1-2
