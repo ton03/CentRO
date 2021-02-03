@@ -42654,3 +42654,126 @@ Body:
       bonus2 bIgnoreMdefClassRate,Class_Normal,100; .@rate = ((getrefine()>14)?120:150); bonus bVariableCastrate,.@rate; bonus bSPrecovRate,-.@rate;
     UnEquipScript: |
       heal 0,((getrefine()>14)?-2000:-3000);
+#=========================================================================================================#
+#============================================CENT RO FREEBIES=============================================#
+#=========================================================================================================#
+  - Id: 38000
+    AegisName: Centro_Headgear
+    Name: Centro Headgear
+    Type: Armor
+    Buy: 20
+    Weight: 500
+    Slots: 1
+    Jobs:
+      All: true
+      Novice: true
+      SuperNovice: true
+    Locations:
+      Head_Top: true
+    EquipLevelMin: 1
+    View: 216
+    Script: |
+      bonus bStr,1;
+      bonus2 bAddRace,RC_DemiHuman,10;
+      bonus2 bAddRace,RC_Player_Human,10;
+      bonus2 bAddEff2,Eff_Sleep,10;
+  - Id: 38001
+    AegisName: Centro_Armor
+    Name: Centro Armor
+    Type: Armor
+    Buy: 20
+    Weight: 500
+    Slots: 1
+    Jobs:
+      All: true
+      Novice: true
+      SuperNovice: true
+    Locations:
+      Armor: true
+    EquipLevelMin: 1
+    Refineable: false
+    Script: |
+      bonus bStr,1;
+      bonus2 bAddRace,RC_DemiHuman,10;
+      bonus2 bAddRace,RC_Player_Human,10;
+      bonus2 bAddEff2,Eff_Sleep,10;
+  - Id: 38002
+    AegisName: Centro_Shield
+    Name: Centro Shield
+    Type: Armor
+    Buy: 20
+    Weight: 500
+    Slots: 1
+    Jobs:
+      All: true
+      Novice: true
+      SuperNovice: true
+    Locations:
+      Left_Hand: true
+    EquipLevelMin: 1
+    Refineable: false
+    Script: |
+      bonus bStr,1;
+      bonus2 bAddRace,RC_DemiHuman,10;
+      bonus2 bAddRace,RC_Player_Human,10;
+      bonus2 bAddEff2,Eff_Sleep,10;
+  - Id: 38003
+    AegisName: Centro_Garment
+    Name: Centro Garment
+    Type: Armor
+    Buy: 20
+    Weight: 500
+    Slots: 1
+    Jobs:
+      All: true
+      Novice: true
+      SuperNovice: true
+    Locations:
+      Garment: true
+    EquipLevelMin: 1
+    Refineable: false
+    Script: |
+      bonus bStr,1;
+      bonus2 bAddRace,RC_DemiHuman,10;
+      bonus2 bAddRace,RC_Player_Human,10;
+      bonus2 bAddEff2,Eff_Sleep,10;
+  - Id: 38004
+    AegisName: Centro_Footgear
+    Name: Centro Foot gear
+    Type: Armor
+    Buy: 20
+    Weight: 500
+    Slots: 1
+    Jobs:
+      All: true
+      Novice: true
+      SuperNovice: true
+    Locations:
+      Shoes: true
+    EquipLevelMin: 1
+    Refineable: false
+    Script: |
+      bonus bStr,1;
+      bonus2 bAddRace,RC_DemiHuman,10;
+      bonus2 bAddRace,RC_Player_Human,10;
+      bonus2 bAddEff2,Eff_Sleep,10;
+  - Id: 38005
+    AegisName: Centro_Glove
+    Name: Centro Glove
+    Type: Armor
+    Buy: 20
+    Weight: 500
+    Slots: 1
+    Jobs:
+      All: true
+      Novice: true
+      SuperNovice: true
+    Locations:
+      Both_Accessory: true
+    EquipLevelMin: 1
+    Refineable: false
+    Script: |
+      bonus bStr,1;
+      bonus2 bAddRace,RC_DemiHuman,10;
+      bonus2 bAddRace,RC_Player_Human,10;
+      bonus2 bAddEff2,Eff_Sleep,10;
