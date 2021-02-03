@@ -1,0 +1,17 @@
+//refinery
+cent_in01,170,269,2	script	Repairman#cent_in01	86,{
+	callfunc "repairmain","Grendal";
+	end;
+}
+cent_in01,184,278,2	script	Vurewell#cent_in01	86,{
+	callfunc "phramain","Vurewell";
+	end;
+}
+cent_in01,172,278,0	script	Dietrich#cent_in01	84,{
+	callfunc "orimain","Dietrich";
+	end;
+}
+cent_in01,178,276,2	script	Hollgrehenn#cent_in01	85,{
+	callfunc "refinemain","Hollgrehenn",0;
+	end;
+}
