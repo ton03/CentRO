@@ -1994,6 +1994,7 @@ ACMD_FUNC(go)
 		{ MAP_MALAYA,      242, 211 }, // 34=Malaya Port
 		{ MAP_ECLAGE,      110,  39 }, // 35=Eclage
 		{ MAP_LASAGNA,     193, 182 }, // 36=Lasagna
+		{ MAP_CENTRO,     121, 142 }, // 37=Centro
 	};
 
 	nullpo_retr(-1, sd);
