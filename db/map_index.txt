@@ -1153,12 +1153,3 @@ cent_pvp04
 cent_evt01
 cent_gvg01
 gld_base01
-gld_base01-1
-gld_base01-2
-gld_base01-3
-gld_base01-4
-gld_base01-5
-gld_base01-6
-gld_base01-7
-gld_base01-8
-gld_base01-9
