@@ -6,11 +6,11 @@ cent_in01,58,179,0	warp	tocent#tav	3,2,centro,168,233      //GOING TO THE BACK T
 centro,117,232,0	warp	toplat	3,2,cent_in02,92,114        //GOING TO THE PLATINUM
 cent_in02,92,110,0	warp	tocent#plat	3,2,centro,117,228      //GOING TO THE BACK TO TOWN
 //EQUIPMENT
-centro,137,238,0	warp	toequip	3,2,cent_in02,92,114        //GOING TO THE EQUIPMENT
-
+centro,137,238,0	warp	toequip	3,2,cent_in01,118,114       //GOING TO THE EQUIPMENT
+cent_in01,118,109,0	warp	tocent#equ	3,2,centro,117,228      //GOING TO THE BACK TO TOWN
 //REFINERY / BLACKSMITH
 centro,107,190,0	warp	toplat	3,2,cent_in01,178,268       //GOING TO THE REFINERY
-cent_in01,178,264,0	warp	tocent#ref	3,2,centro,107,194      //GOING TO THE BACK TO TOWN
+cent_in01,178,264,0	warp	tocent#ref	3,2,centro,137,234      //GOING TO THE BACK TO TOWN
 //CHURCH
 centro,95,205,0	warp	toplat	3,2,cent_chc,102,64             //GOING TO THE CHURCH
 cent_chc,102,60,0	warp	tocent#chc	3,2,centro,99,205       //GOING TO THE BACK TO TOWN
