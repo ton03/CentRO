@@ -9,11 +9,14 @@ cent_in02,92,110,0	warp	tocent#plat	3,2,centro,117,228      //GOING TO THE BACK 
 centro,137,238,0	warp	toequip	3,2,cent_in01,118,114       //GOING TO THE EQUIPMENT
 cent_in01,118,109,0	warp	tocent#equ	3,2,centro,137,234      //GOING TO THE BACK TO TOWN
 //REFINERY / BLACKSMITH
-centro,107,190,0	warp	toplat	3,2,cent_in01,178,268       //GOING TO THE REFINERY
+centro,107,190,0	warp	toref	3,2,cent_in01,178,268       //GOING TO THE REFINERY
 cent_in01,178,264,0	warp	tocent#ref	3,2,centro,107,194      //GOING TO THE BACK TO TOWN
 //CHURCH
-centro,95,205,0	warp	toplat	3,2,cent_chc,102,64             //GOING TO THE CHURCH
+centro,95,205,0	warp	tochc	3,2,cent_chc,102,64             //GOING TO THE CHURCH
 cent_chc,102,60,0	warp	tocent#chc	3,2,centro,99,205       //GOING TO THE BACK TO TOWN
+//WINDMILL
+centro,178,154,0	warp	towmill	3,2,cent_wmill,20,12            //GOING TO THE WMILL
+cent_wmill,20,8,0	warp	tocent#wmill	3,2,centro,173,152   //GOING TO THE BACK TO TOWN
 
 
 //==============NPCS / MERCHANTS=================//
@@ -73,7 +76,7 @@ waitingroom "Job Change!",0;
 }
 
 //Equipment
-centro,141,236,5	script	Equipment#sign	837,{
+centro,141,236,4	script	Equipment#sign	837,{
 end;
 
 OnInit:
@@ -82,7 +85,7 @@ waitingroom "Equipment!",0;
 }
 
 //Tavern
-centro,166,238,5	script	Tavern#sign	837,{
+centro,166,238,4	script	Tavern#sign	837,{
 end;
 
 OnInit:
