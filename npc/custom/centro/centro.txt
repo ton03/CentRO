@@ -2,8 +2,19 @@
 //TAVERN
 centro,170,236,0	warp	totavern	3,2,cent_in01,58,182    //GOING TO THE TAVERN
 cent_in01,58,179,0	warp	tocent#tav	3,2,centro,168,233      //GOING TO THE BACK TO TOWN
+//PLATINUM SKILLS
+centro,117,232,0	warp	toplat	3,2,cent_in02,92,114        //GOING TO THE PLATINUM
+cent_in02,92,110,0	warp	tocent#plat	3,2,centro,117,228      //GOING TO THE BACK TO TOWN
 //EQUIPMENT
-centro,117,232,0	warp	toequip	3,2,cent_in01,58,182        //GOING TO THE EQUIPMENT SHOP
+centro,137,238,0	warp	toequip	3,2,cent_in02,92,114        //GOING TO THE EQUIPMENT
+
+//REFINERY / BLACKSMITH
+centro,107,190,0	warp	toplat	3,2,cent_in01,178,268       //GOING TO THE REFINERY
+cent_in01,178,264,0	warp	tocent#ref	3,2,centro,107,194      //GOING TO THE BACK TO TOWN
+//CHURCH
+centro,95,205,0	warp	toplat	3,2,cent_chc,102,64             //GOING TO THE CHURCH
+cent_chc,102,60,0	warp	tocent#chc	3,2,centro,99,205       //GOING TO THE BACK TO TOWN
+
 
 
 
@@ -16,7 +27,7 @@ centro,182,181,2	shop	Pet Groomer#centro	125,537:-1,643:-1,10013:-1,10014:-1,554
 
 
 //KAFRA
-centro,111,142,4	script	Kafra Employee::kaf_centro	113,{
+centro,111,142,6	script	Kafra Employee::kaf_centro	113,{
 	cutin "kafra_05",2;
 	callfunc "F_KafSet";
 	mes "[Kafra Employee]";
