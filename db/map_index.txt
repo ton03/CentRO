@@ -1131,25 +1131,3 @@ verus02_b
 //======================================================================================
 // - Other/Extra maps -
 //======================================================================================
-
-centro
-cent_auct01
-cent_auct02
-cent_cave
-cent_chc
-cent_dun01
-cent_dun02
-cent_in01
-cent_in02
-cent_wmill
-cent_chip01
-cent_pvp01
-cent_pvp02
-cent_pvp02-1
-cent_pvp02-2
-cent_pvp02-3
-cent_pvp02-4
-cent_pvp04
-cent_evt01
-cent_gvg01
-gld_base01
