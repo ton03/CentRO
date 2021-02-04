@@ -1,1 +1,0 @@
-char_ip: 127.0.0.1 // Syawaet to your WAN IP
