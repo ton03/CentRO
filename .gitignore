@@ -58,9 +58,9 @@ Thumbs.db
 #/conf/import
 #/conf/msg_conf/import
 
-# TaguRO conf files
-/conf/import/taguro/char_conf.txt
-/conf/import/taguro/map_conf.txt
+# CentRO conf files
+/conf/import/centro/char_conf.txt
+/conf/import/centro/map_conf.txt
 
 # /lib
 /lib
