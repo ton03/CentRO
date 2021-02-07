@@ -42800,7 +42800,7 @@ Body:
     EquipLevelMin: 1
     Refineable: false
     Script: |
-      bonus bStr,1;
+
   - Id: 38801
     AegisName: Bamboo_Fishing_Rod
     Name: Bamboo Fishing Rod
@@ -42821,7 +42821,7 @@ Body:
     EquipLevelMin: 1
     Refineable: false
     Script: |
-      bonus bStr,1;
+
 - Id: 38802
     AegisName: Metallic_Fishing_Rod
     Name: Metallic Fishing Rod
@@ -42842,4 +42842,3 @@ Body:
     EquipLevelMin: 1
     Refineable: false
     Script: |
-      bonus bStr,1;
