@@ -42784,6 +42784,7 @@ Body:
     AegisName: Wooden_Fishing_Rod
     Name: Wooden Fishing Rod
     Type: Weapon
+    Subtype: 2hSword
     Buy: 10000
     Weight: 2000
     Attack: 180
@@ -42805,6 +42806,7 @@ Body:
     AegisName: Bamboo_Fishing_Rod
     Name: Bamboo Fishing Rod
     Type: Weapon
+    Subtype: 2hSword
     Buy: 10000
     Weight: 2000
     Attack: 180
@@ -42826,6 +42828,7 @@ Body:
     AegisName: Metallic_Fishing_Rod
     Name: Metallic Fishing Rod
     Type: Weapon
+    Subtype: 2hSword
     Buy: 10000
     Weight: 2000
     Attack: 180
