@@ -485,7 +485,7 @@ function	script	Fish_Reward_Func	{
 		setnpcdisplay(strnpcinfo(3), getmonsterinfo(.@mobid,MOB_NAME),.@mobid);
 		explode(.@skilllist$,.@idlist$,":");
 		.@skill = atoi(.@skilllist$[rand(getarraysize(.@skilllist$))]);
-		getmapxy(.@map$,.@x,.@y,UNITTYPE_PC);
+		getmapxy(.@map$,.@x,.@y,BL_PC);
 		//movenpc strnpcinfo(3),.@x,.@y;
 		npcskill .@skill,10,(getmonsterinfo(.@mobid,MOB_INT)>=199?199:getmonsterinfo(.@mobid,MOB_INT)),getmonsterinfo(.@mobid,MOB_LV);
 		sleep 1000;
@@ -497,7 +497,7 @@ function	script	Fish_Reward_Func	{
 		.@mob = atoi(.@moblist$[rand(getarraysize(.@moblist$))]);
 		showscript "It's seens angry...",getcharid2(3,getVariable(".charname"+strnpcinfo(3)+"$"));
 		setnpcdisplay(strnpcinfo(3), getmonsterinfo(.@mob,MOB_NAME),.@mob);
-		getmapxy(.@map$,.@x,.@y,UNITTYPE_PC);
+		getmapxy(.@map$,.@x,.@y,BL_PC);
 		sleep 1000;
 		emotion ET_HUK,getcharid(3,getVariable(".charname"+strnpcinfo(3)+"$"));
 		setnpcdisplay(strnpcinfo(3), getVariable(".npcname"+strnpcinfo(3)+"$"),723);
@@ -546,7 +546,7 @@ function	script	EF_Bubble	{
 
 function	script	Fish_Spot_Initialize	{
 	.@npc$ = strnpcinfo(3);
-	getmapxy(.@map$,.@mapx,.@mapy,UNITTYPE_NPC);
+	getmapxy(.@map$,.@mapx,.@mapy,BL_NPC);
 	setVariable(".npcx"+.@npc$,.@mapx);
 	setVariable(".npcy"+.@npc$,.@mapy);
 	setVariable(".npcname"+.@npc$+"$",strnpcinfo(0));
