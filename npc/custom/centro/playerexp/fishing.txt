@@ -563,7 +563,7 @@ function	script	Fish_Spot_Initialize	{
 	return;
 }
 
-izlude,110,67,0	script	Test Spot::FISHTEST	723,{
+izlude,150,67,0	script	Test Spot::FISHTEST	723,{
 Fishing_Start_Func(".rod_list",".bait_list");
 end;
 
