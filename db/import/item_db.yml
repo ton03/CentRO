@@ -42777,3 +42777,69 @@ Body:
       bonus2 bAddRace,RC_DemiHuman,10;
       bonus2 bAddRace,RC_Player_Human,10;
       bonus2 bAddEff2,Eff_Sleep,10;
+#=========================================================================================================#
+#============================================FISHING RODS=================================================#
+#=========================================================================================================#
+  - Id: 38800
+    AegisName: Wooden_Fishing_Rod
+    Name: Wooden Fishing Rod
+    Type: Weapon
+    Buy: 10000
+    Weight: 2000
+    Attack: 180
+    Range: 1
+    Slots: 1
+    Jobs:
+      All: true
+      Crusader: true
+      Knight: true
+      Swordman: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 1
+    EquipLevelMin: 1
+    Refineable: false
+    Script: |
+      bonus bStr,1;
+  - Id: 38801
+    AegisName: Bamboo_Fishing_Rod
+    Name: Bamboo Fishing Rod
+    Type: Weapon
+    Buy: 10000
+    Weight: 2000
+    Attack: 180
+    Range: 1
+    Slots: 1
+    Jobs:
+      All: true
+      Crusader: true
+      Knight: true
+      Swordman: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 2
+    EquipLevelMin: 1
+    Refineable: false
+    Script: |
+      bonus bStr,1;
+- Id: 38802
+    AegisName: Metallic_Fishing_Rod
+    Name: Metallic Fishing Rod
+    Type: Weapon
+    Buy: 10000
+    Weight: 2000
+    Attack: 180
+    Range: 1
+    Slots: 1
+    Jobs:
+      All: true
+      Crusader: true
+      Knight: true
+      Swordman: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 2
+    EquipLevelMin: 1
+    Refineable: false
+    Script: |
+      bonus bStr,1;
