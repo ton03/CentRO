@@ -42782,14 +42782,14 @@ Body:
 #=========================================================================================================#
   - Id: 38800
     AegisName: Wooden_Fishing_Rod
-    Name: Wooden Fishing Rod
+    Name: Wooden_Fishing_Rod
     Type: Weapon
-    Subtype: 2hSword
-    Buy: 10000
-    Weight: 2000
-    Attack: 180
+    SubType: 2hSword
+    Buy: 2000
+    Weight: 1000
+    Attack: 60
     Range: 1
-    Slots: 1
+    Slots: 0
     Jobs:
       All: true
       Crusader: true
@@ -42798,20 +42798,18 @@ Body:
     Locations:
       Both_Hand: true
     WeaponLevel: 1
-    EquipLevelMin: 1
+    EquipLevelMin: 4
     Refineable: false
-    Script: |
-
   - Id: 38801
     AegisName: Bamboo_Fishing_Rod
-    Name: Bamboo Fishing Rod
+    Name: Bamboo_Fishing_Rod
     Type: Weapon
-    Subtype: 2hSword
-    Buy: 10000
-    Weight: 2000
-    Attack: 180
+    SubType: 2hSword
+    Buy: 2000
+    Weight: 1000
+    Attack: 60
     Range: 1
-    Slots: 1
+    Slots: 0
     Jobs:
       All: true
       Crusader: true
@@ -42819,21 +42817,19 @@ Body:
       Swordman: true
     Locations:
       Both_Hand: true
-    WeaponLevel: 2
-    EquipLevelMin: 1
+    WeaponLevel: 1
+    EquipLevelMin: 4
     Refineable: false
-    Script: |
-
-- Id: 38802
+  - Id: 38802
     AegisName: Metallic_Fishing_Rod
-    Name: Metallic Fishing Rod
+    Name: Metallic_Fishing_Rod
     Type: Weapon
-    Subtype: 2hSword
-    Buy: 10000
-    Weight: 2000
-    Attack: 180
+    SubType: 2hSword
+    Buy: 2000
+    Weight: 1000
+    Attack: 60
     Range: 1
-    Slots: 1
+    Slots: 0
     Jobs:
       All: true
       Crusader: true
@@ -42841,7 +42837,7 @@ Body:
       Swordman: true
     Locations:
       Both_Hand: true
-    WeaponLevel: 2
-    EquipLevelMin: 1
+    WeaponLevel: 1
+    EquipLevelMin: 4
     Refineable: false
-    Script: |
+
