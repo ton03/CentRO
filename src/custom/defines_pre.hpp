@@ -18,13 +18,4 @@
 	#define PRERE
 #endif
 
-#ifndef PACKETVER
-	#define PACKETVER 20180620
-#endif
-
-// Pre-renewal
-#ifndef PRERE
-	#define PRERE
-#endif
-
 #endif /* CONFIG_CUSTOM_DEFINES_PRE_HPP */
