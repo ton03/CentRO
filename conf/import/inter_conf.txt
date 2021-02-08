@@ -20,3 +20,5 @@ log_db_id: centro
 log_db_pw: UloPaLang3InchesNa
 log_db_db: centro
 
+
+import: conf/import/centro/inter_conf.txt

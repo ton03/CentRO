@@ -62,6 +62,7 @@ Thumbs.db
 # CentRO conf files
 /conf/import/centro/char_conf.txt
 /conf/import/centro/map_conf.txt
+/conf/import/centro/inter_conf.txt
 
 # /lib
 /lib
