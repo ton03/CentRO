@@ -74,7 +74,7 @@ WeaponLv1:
   Rates:
     - Level: 8
       NormalChance: 60
-      EnrichedChance: 90
+      EnrichedChance: 10
       EventNormalChance: 60
       EventEnrichedChance: 95
     - Level: 9
