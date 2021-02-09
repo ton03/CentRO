@@ -21748,7 +21748,7 @@ static inline uint8 clif_refineui_materials( struct item *item, struct item_data
 
 	// Enriched refine requirements
 	if( clif_refineui_materials_sub( item, id, materials, count, REFINE_COST_ENRICHED ) ){
-		count++;
+		// count++;
 	}
 
 	// Return the amount of found materials
