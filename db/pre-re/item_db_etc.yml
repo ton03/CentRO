@@ -655,6 +655,7 @@ Body:
     Weight: 10
     Flags:
       BuyingStore: true
+      DropEffect: 2048
   - Id: 910
     AegisName: Garlet
     Name: Garlet
