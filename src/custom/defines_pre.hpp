@@ -10,7 +10,7 @@
  * For detailed guidance on these check http://rathena.org/wiki/SRC/config/
  **/
 #ifndef PACKETVER
-	#define PACKETVER 20180620
+	#define PACKETVER 20200401
 #endif
 
 // Pre-renewal
