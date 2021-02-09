@@ -655,7 +655,7 @@ Body:
     Weight: 10
     Flags:
       BuyingStore: true
-      DropEffect: CLIENT
+      DropEffect: BLUE_PILLAR
   - Id: 910
     AegisName: Garlet
     Name: Garlet
