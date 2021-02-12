@@ -1213,8 +1213,6 @@ enum e_job_types
 	NPC_RANGE3_END, // Official: JT_NEW_NPC_3RD_END=19999
 
 	// Unofficial
-	N
-	
 	JT_INVISIBLE = 32767,
 	JT_FAKENPC = -1
 };
