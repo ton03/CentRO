@@ -36,7 +36,7 @@ centro,182,181,2	shop	Pet Groomer#centro	125,537:-1,643:-1,10013:-1,10014:-1,554
 
 
 centro,111,142,6	script	Kafra Employee::kaf_centro	10500,{
-	cutin "kafra_05",2;
+	cutin "cent_kaf01",2;
 	callfunc "F_KafSet";
 	mes "[Kafra Employee]";
 	mes "Welcome to the";
@@ -52,7 +52,7 @@ centro,111,142,6	script	Kafra Employee::kaf_centro	10500,{
 }
 
 centro,160,264,4	script	Kafra Employee::kaf_centropvp	10501,{
-	cutin "kafra_05",2;
+	cutin "cent_kaf02",2;
 	callfunc "F_KafSet";
 	mes "[Kafra Employee]";
 	mes "Welcome to the";
@@ -115,7 +115,7 @@ waitingroom "Tavern!",0;
 }
 
 //PvP Related
-centro,139,265,4	script	BG/PvP#sign	837,{
+centro,139,265,6	script	BG/PvP#sign	837,{
 end;
 
 OnInit:
