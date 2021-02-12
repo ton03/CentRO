@@ -74,8 +74,8 @@
 //veins,217,121,4	duplicate(Healer)	Healer#ve	909
 //xmas,143,136,4	duplicate(Healer)	Healer#xmas	909
 //yuno,164,45,4	duplicate(Healer)	Healer#yuno	909
-centro,162,260,4	duplicate(Healer)	Healer#cent01	909
-centro,111,146,4	duplicate(Healer)	Healer#cent02	909
+centro,158,264,4	duplicate(Healer)	Healer#cent01	909
+centro,111,146,6	duplicate(Healer)	Healer#cent02	909
 
 
 // Duplicates (Renewal)

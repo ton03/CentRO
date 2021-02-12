@@ -376,7 +376,7 @@ OnPCLoadMapEvent:
 	end;
 }
 
-centro,161,255,3	script	PvP-StatsViewer	468,{
+centro,149,264,3	script	PvP-StatsViewer	468,{
 	.@npcname$ = strnpcinfo(0);
 	while (true) {
 		mes "["+ .@npcname$ +"]";
