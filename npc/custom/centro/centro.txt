@@ -17,6 +17,9 @@ cent_chc,102,60,0	warp	tocent#chc	3,2,centro,99,205       //GOING TO THE BACK TO
 //WINDMILL
 centro,178,154,0	warp	towmill	3,2,cent_wmill,20,12            //GOING TO THE WMILL
 cent_wmill,20,8,0	warp	tocent#wmill	3,2,centro,173,152   //GOING TO THE BACK TO TOWN
+//BG ROOM
+
+
 
 
 //==============NPCS / MERCHANTS=================//
@@ -42,6 +45,22 @@ centro,111,142,6	script	Kafra Employee::kaf_centro	113,{
 	mes "of service today?";
 	callfunc "F_Kafra",5,0,0,40,800;
 	savepoint "centro",119,143,1,1;
+	callfunc "F_KafEnd",0,1,"in the city of Centro";
+
+}
+
+centro,160,263,4	script	Kafra Employee::kaf_centropvp	113,{
+	cutin "kafra_05",2;
+	callfunc "F_KafSet";
+	mes "[Kafra Employee]";
+	mes "Welcome to the";
+	mes "Kafra Corporation~";
+	mes "The Kafra Services are";
+	mes "always here to support";
+	mes "you. So how can I be";
+	mes "of service today?";
+	callfunc "F_Kafra",5,0,0,40,800;
+	savepoint "centro",148,258,1,1;
 	callfunc "F_KafEnd",0,1,"in the city of Centro";
 
 }
@@ -91,4 +110,13 @@ end;
 OnInit:
 
 waitingroom "Tavern!",0;
+}
+
+//PvP Related
+centro,114,163,4	script	PvP#sign	837,{
+end;
+
+OnInit:
+
+waitingroom "PvP!",0;
 }

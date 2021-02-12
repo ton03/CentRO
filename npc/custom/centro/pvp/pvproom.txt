@@ -1,0 +1,83 @@
+centro,152,264,4	script	PVP Arena::PVP Arena	655,{
+if ( agitcheck() || agitcheck2() ) {
+mes "Sorry, PVP Rooms are Locked During WOE.";
+close;
+}
+mes "[ ^0065DFPVP Warper^000000 ]";
+mes "Welcome To PVP Warper";
+mes "I Can Help You Warp To PVP Room";
+mes "You Ready?";
+switch(select("PvP Room ["+getmapusers("x_lhz")+"/100]:No")) {
+case 1:
+set zz_point,zz_point+1;
+set my_point,zz_point;
+if (getmapusers("x_lhz") > 255) callsub S_full;
+announce ""+ strcharinfo(0) +" Has Entered The PvP Room",bc_all; //announce and end
+warp "x_lhz" ,0,0;
+close;
+end;
+case 2:
+set zz_point,zz_point+1;
+set my_point,zz_point;
+if (getmapusers("x_lhz") > 255) callsub S_full;
+announce ""+ strcharinfo(0) +" Has Entered The PvP Room",bc_all; //announce and end
+warp "x_lhz" ,0,0;
+close;
+end;
+case 3:
+close;
+
+S_full:
+mes " ";
+mes "I'm sorry, this arena is full.  Please try again later...";
+close;
+
+}
+OnInit:
+while (1) {
+delwaitingroom;
+set .@count, getmapusers("x_lhz") + getmapusers("x_lhz");
+waitingroom "PvP Room ["+ .@count + ((.@count==1) ? " User" : " Users") +"]",0;
+sleep 1000;
+}
+}
+// Duplicates
+//============================================================
+//rachel,131,117,4	duplicate(PVP Arena)	PVP Room#1-2	483
+//mora,49,152,4	duplicate(PVP Arena)	PVP Room#1-3 483
+//aldebaran,135,122,5	duplicate(PVP Arena)	PVP Room#1-4 483
+//xmas,154,136,4 duplicate(PVP Arena) PVP Room#1-5 483
+//que_temsky,35,144,5 duplicate(PVP Arena) PVP Room#1-6 483
+//morocc,163,95,3 duplicate(PVP Arena) PVP Room#1-7 483
+//moscovia,226,191,3 duplicate(PVP Arena) PVP Room#1-8 483
+//alberta,110,140,3 duplicate(PVP Arena) PVP Room#1-9 483 
+//amatsu,207,86,3 duplicate(PVP Arena) PVP Room#1-10 483 
+//ayothaya,154,115,3 duplicate(PVP Arena) PVP Room#1-11 483 
+//comodo,191,160,3 duplicate(PVP Arena) PVP Room#1-12 483 
+//einbech,198,83,4 duplicate(PVP Arena) PVP Room#1-13 483 
+//einbroch,71,200,3 duplicate(PVP Arena) PVP Room#1-14 483 
+//geffen,125,71,4 duplicate(PVP Arena) PVP Room#1-15 483
+//gonryun,165,122,4 duplicate(PVP Arena) PVP Room#1-16 483
+//hugel,92,154,5 duplicate(PVP Arena) PVP Room#1-17 483
+//izlude,130,151,3 duplicate(PVP Arena) PVP Room#1-18 483
+//lighthalzen,166,101,4 duplicate(PVP Arena) PVP Room#1-19 483
+//louyang,223,104,3 duplicate(PVP Arena) PVP Room#1-20 483
+//payon,175,222,4 duplicate(PVP Arena) PVP Room#1-21 483
+//veins,219,127,4 duplicate(PVP Arena) PVP Room#1-22 483
+//yuno,163,170,4 duplicate(PVP Arena) PVP Room#1-23 483
+//umbala,106,159,3 duplicate(PVP Arena) PVP Room#1-24 483
+//dewata,207,182,5 duplicate(PVP Arena) PVP Room#1-25 483
+//job_wiz,43,170,5 duplicate(PVP Arena) PVP ROOM#1-29 483
+
+
+
+
+x_lhz	mapflag	pvp
+x_lhz	mapflag	pvp_noguild
+x_lhz	mapflag	nosave
+x_lhz	mapflag	nowarp
+x_lhz	mapflag	nowarpto
+x_lhz	mapflag	noteleport
+x_lhz	mapflag	noreturn
+x_lhz	mapflag	nobranch
+x_lhz	mapflag	noexppenalty

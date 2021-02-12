@@ -15,9 +15,9 @@
 
 -	script	Healer	-1,{
 
-	.@Price = 0;	// Zeny required for heal
+	.@Price = 10000;	// Zeny required for heal
 	.@Buffs = 0;	// Also buff players? (1: yes / 0: no)
-	.@Delay = 0;	// Heal delay, in seconds
+	.@Delay = 5;	// Heal delay, in seconds
 
 	if (@HD > gettimetick(2))
 		end;
@@ -74,6 +74,9 @@ umbala,105,148,3	duplicate(Healer)	Healer#umb	909
 veins,217,121,4	duplicate(Healer)	Healer#ve	909
 xmas,143,136,4	duplicate(Healer)	Healer#xmas	909
 yuno,164,45,4	duplicate(Healer)	Healer#yuno	909
+centro,162,260,4	duplicate(Healer)	Healer#cent01	909
+centro,111,146,4	duplicate(Healer)	Healer#cent02	909
+
 
 // Duplicates (Renewal)
 //============================================================

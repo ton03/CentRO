@@ -80,13 +80,10 @@ OnInit:
 
 	setarray .maptrigger$, // only these maps will trigger this script
 //		"all", // uncomment this to allow load all maps
-		"x_prt",
 		"x_lhz",
-		"guild_vs3",
-		"guild_vs4",
-		"guild_vs5";
 
-	.showstatue = 5; // number of statues. This number must match with the number of duplicates at the end of the script
+
+	.showstatue = 0; // number of statues. This number must match with the number of duplicates at the end of the script
 	.fix_custom_sprite = true; // if your server has custom animated sprite that overlaps the sprite animation repeatedly on the statues, enable this
 
 //	anti-sit-killer system
@@ -95,7 +92,7 @@ OnInit:
 	// Its possible for a level 1 novice to kill a level 99 player and he/she will still get in the ladder
 	// but a level 99 kill a level 1 player will get nothing
 	// 0 - off this system ( default is 55, pk setting )
-	.lvltokill = 0;
+	.lvltokill = 85;
 
 	// when a player kill another same player <this number> times in a row, the player is warp back to save point.
 	// and the player's streak, kills, and ownage count will deduct accordingly
@@ -379,7 +376,7 @@ OnPCLoadMapEvent:
 	end;
 }
 
-prontera,194,188,3	script	PvP-StatsViewer	468,{
+centro,161,255,3	script	PvP-StatsViewer	468,{
 	.@npcname$ = strnpcinfo(0);
 	while (true) {
 		mes "["+ .@npcname$ +"]";
@@ -571,11 +568,11 @@ OnInit:
 	end;
 }
 
-prontera,208,188,4	duplicate(pvp_ladder_statue)	pvp_ladder_statue#1	1_F_MARIA
-prontera,210,188,4	duplicate(pvp_ladder_statue)	pvp_ladder_statue#2	1_F_MARIA
-prontera,212,188,4	duplicate(pvp_ladder_statue)	pvp_ladder_statue#3	1_F_MARIA
-prontera,214,188,4	duplicate(pvp_ladder_statue)	pvp_ladder_statue#4	1_F_MARIA
-prontera,216,188,4	duplicate(pvp_ladder_statue)	pvp_ladder_statue#5	1_F_MARIA
+//prontera,208,188,4	duplicate(pvp_ladder_statue)	pvp_ladder_statue#1	1_F_MARIA
+//prontera,210,188,4	duplicate(pvp_ladder_statue)	pvp_ladder_statue#2	1_F_MARIA
+//prontera,212,188,4	duplicate(pvp_ladder_statue)	pvp_ladder_statue#3	1_F_MARIA
+//prontera,214,188,4	duplicate(pvp_ladder_statue)	pvp_ladder_statue#4	1_F_MARIA
+//prontera,216,188,4	duplicate(pvp_ladder_statue)	pvp_ladder_statue#5	1_F_MARIA
 //prontera,160,180,4	duplicate(pvp_ladder_statue)	pvp_ladder_statue#6	1_F_MARIA
 //prontera,162,180,4	duplicate(pvp_ladder_statue)	pvp_ladder_statue#7	1_F_MARIA
 //prontera,164,180,4	duplicate(pvp_ladder_statue)	pvp_ladder_statue#8	1_F_MARIA
