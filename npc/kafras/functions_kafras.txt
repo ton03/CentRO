@@ -327,6 +327,7 @@ function	script	F_KafTele	{
 	else if (@wrpD$[.@j] == "Payon") warp "payon", 161, 58;
 	else if (@wrpD$[.@j] == "Prontera") warp "prontera", 116, 72;
 	else if (@wrpD$[.@j] == "Umbala") warp "umbala", 100, 154;
+	else if (@wrpD$[.@j] == "Centro") warp "centro", 121, 142;
 	end;
 }
 

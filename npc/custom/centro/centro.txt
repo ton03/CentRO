@@ -18,6 +18,8 @@ cent_chc,102,60,0	warp	tocent#chc	3,2,centro,99,205       //GOING TO THE BACK TO
 centro,178,154,0	warp	towmill	3,2,cent_wmill,20,12            //GOING TO THE WMILL
 cent_wmill,20,8,0	warp	tocent#wmill	3,2,centro,173,152   //GOING TO THE BACK TO TOWN
 //BG ROOM
+centro,178,154,0	warp	tobg	3,2,cent_wmill,20,12            //GOING TO THE WMILL
+cent_wmill,20,8,0	warp	tocent#bg	3,2,centro,173,152   //GOING TO THE BACK TO TOWN
 
 
 
@@ -113,10 +115,10 @@ waitingroom "Tavern!",0;
 }
 
 //PvP Related
-centro,114,163,4	script	PvP#sign	837,{
+centro,139,265,4	script	BG/PvP#sign	837,{
 end;
 
 OnInit:
 
-waitingroom "PvP!",0;
+waitingroom "BG / PvP!",0;
 }

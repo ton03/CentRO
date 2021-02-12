@@ -54,7 +54,7 @@
 		message strcharinfo(0), "Buffing costs " + callfunc("F_InsertComma",.@Price) + " Zeny.";
 		if (Zeny < .@Price)
 			end;
-		if (select("^0055FFHeal^000000:^777777Cancel^000000") == 2)
+		if (select("^0055FFBuffs^000000:^777777Cancel^000000") == 2)
 			end;
 		Zeny -= .@Price;
 	}
