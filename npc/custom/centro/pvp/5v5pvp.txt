@@ -16,7 +16,7 @@
 
 -	script	5v5pvp#control	-1,{
 OnInit:
-	.minplayer2start = 5;      // minimum players to start (ex. if 3vs3, set to 3)
+	.minplayer2start = 1;      // minimum players to start (ex. if 3vs3, set to 3)
 	.eventlasting    = 10*60;  // event duration before auto-reset (20 minutes * seconds)
 	setarray .rewarditem[0],   // rewards for the winning team: <item>,<amount>,...
 		501, 10;
