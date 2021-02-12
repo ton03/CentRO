@@ -33,7 +33,7 @@ centro,182,181,2	shop	Pet Groomer#centro	125,537:-1,643:-1,10013:-1,10014:-1,554
 //===============KAFRA===============//
 
 
-centro,111,142,6	script	Kafra Employee::kaf_centro	113,{
+centro,111,142,6	script	Kafra Employee::kaf_centro	30001,{
 	cutin "kafra_05",2;
 	callfunc "F_KafSet";
 	mes "[Kafra Employee]";
@@ -49,7 +49,7 @@ centro,111,142,6	script	Kafra Employee::kaf_centro	113,{
 
 }
 
-centro,160,264,4	script	Kafra Employee::kaf_centropvp	113,{
+centro,160,264,4	script	Kafra Employee::kaf_centropvp	30000,{
 	cutin "kafra_05",2;
 	callfunc "F_KafSet";
 	mes "[Kafra Employee]";
