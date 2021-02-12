@@ -26,7 +26,7 @@ ma_in01,8,24,0	warp	tocent#bg	3,2,centro,143,262   		//GOING TO THE BACK TO TOWN
 
 //==============NPCS / MERCHANTS=================//
 //FREEBIES/GUIDE NPC
-centro,226,54,5	script	Beach Boi	10179{
+centro,226,54,5	script	Beach Boi	10179,{
 cutin "beachboy.png",1;
 mes "[Girl standing near the door]";
 mes "";
