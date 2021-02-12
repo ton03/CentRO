@@ -95,7 +95,6 @@ OnInit:
 	set getvariableofnpc( .rednpcname$, "5v5pvp#control" ), strnpcinfo(0);
 OnStart:
 	waitingroom "Red Team", getvariableofnpc( .minplayer2start, "5v5pvp#control" ) +1, "5v5pvp#control::OnStart", getvariableofnpc( .minplayer2start, "5v5pvp#control" );
-    setlook LOOK_CLOTHES_COLOR,121;
 	end;
 }
 
@@ -106,7 +105,6 @@ OnInit:
 	set getvariableofnpc( .bluenpcname$, "5v5pvp#control" ), strnpcinfo(0);
 OnStart:
 	waitingroom "Blue Team", getvariableofnpc( .minplayer2start, "5v5pvp#control" ) +1, "5v5pvp#control::OnStart", getvariableofnpc( .minplayer2start, "5v5pvp#control" );
-    setlook LOOK_CLOTHES_COLOR,102;
 	end;
 }
 
