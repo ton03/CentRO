@@ -32,7 +32,6 @@ OnStart:
 	delwaitingroom .bluenpcname$;
 	bg_warp .red, "cen_pvp01-2", 79,120;
 	bg_warp .blue, "cen_pvp01-2", 120,80;
-    setlook LOOK_CLOTHES_COLOR,1,.red; 
 	.red_score = .blue_score = .minplayer2start;
 	bg_updatescore "cen_pvp01-2", .red_score, .blue_score;
 
@@ -96,6 +95,7 @@ OnInit:
 	set getvariableofnpc( .rednpcname$, "5v5pvp#control" ), strnpcinfo(0);
 OnStart:
 	waitingroom "Red Team", getvariableofnpc( .minplayer2start, "5v5pvp#control" ) +1, "5v5pvp#control::OnStart", getvariableofnpc( .minplayer2start, "5v5pvp#control" );
+    setlook LOOK_CLOTHES_COLOR,121;
 	end;
 }
 
@@ -106,6 +106,7 @@ OnInit:
 	set getvariableofnpc( .bluenpcname$, "5v5pvp#control" ), strnpcinfo(0);
 OnStart:
 	waitingroom "Blue Team", getvariableofnpc( .minplayer2start, "5v5pvp#control" ) +1, "5v5pvp#control::OnStart", getvariableofnpc( .minplayer2start, "5v5pvp#control" );
+    setlook LOOK_CLOTHES_COLOR,102;
 	end;
 }
 
