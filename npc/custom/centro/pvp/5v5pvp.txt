@@ -31,7 +31,7 @@ OnStart:
 	delwaitingroom .rednpcname$;
 	delwaitingroom .bluenpcname$;
 	bg_warp .red, "cen_pvp01-2", 79,120;
-    setlook LOOK_CLOTHES_COLOR,102,getcharid(2);
+    setlook LOOK_CLOTHES_COLOR,102,getcharid(1);
 	bg_warp .blue, "cen_pvp01-2", 120,80;
     setlook LOOK_CLOTHES_COLOR,121,getcharid(2);
 	.red_score = .blue_score = .minplayer2start;
