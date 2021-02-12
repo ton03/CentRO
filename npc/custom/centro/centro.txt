@@ -27,7 +27,7 @@ ma_in01,8,24,0	warp	tocent#bg	3,2,centro,143,262   		//GOING TO THE BACK TO TOWN
 //==============NPCS / MERCHANTS=================//
 //FREEBIES/GUIDE NPC
 centro,226,54,5	script	Beach Boi	10179,{
-cutin "beachboy.bmp",1;
+cutin "beachboy.bmp",3;
 mes "[Girl standing near the door]";
 mes "";
 mes "Please refrain from touching my little sister!";
@@ -35,7 +35,7 @@ next;
 goto s_end;
 
 s_end:
-cutin "bio_katrinn02.bmp",255;
+cutin "beachboy.bmp",255;
 mes "Come here, let's talk.";
 close;
 
