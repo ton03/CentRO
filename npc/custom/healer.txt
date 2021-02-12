@@ -107,7 +107,7 @@ centro,158,264,4	duplicate(Healer)	Healer#cent01	909
 centro,111,146,6	duplicate(Healer)	Healer#cent02	909
 
 //BUFFER Duplicates
-centro,156,264,4	duplicate(Buffer)	Buffer#cent01	1894
+centro,156,264,4	duplicate(Buffer)	Buffer#cent01	508
 
 
 // Duplicates (Renewal)
