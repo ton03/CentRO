@@ -15,11 +15,11 @@ cent_in01,178,264,0	warp	tocent#ref	3,2,centro,107,194      //GOING TO THE BACK 
 centro,95,205,0	warp	tochc	3,2,cent_chc,102,64             //GOING TO THE CHURCH
 cent_chc,102,60,0	warp	tocent#chc	3,2,centro,99,205       //GOING TO THE BACK TO TOWN
 //WINDMILL
-centro,178,154,0	warp	towmill	3,2,cent_wmill,20,12            //GOING TO THE WMILL
-cent_wmill,20,8,0	warp	tocent#wmill	3,2,centro,173,152   //GOING TO THE BACK TO TOWN
+centro,178,154,0	warp	towmill	3,2,cent_wmill,20,12        //GOING TO THE WMILL
+cent_wmill,20,8,0	warp	tocent#wmill	3,2,centro,173,152  //GOING TO THE BACK TO TOWN
 //BG ROOM
-centro,178,154,0	warp	tobg	3,2,cent_wmill,20,12            //GOING TO THE WMILL
-cent_wmill,20,8,0	warp	tocent#bg	3,2,centro,173,152   //GOING TO THE BACK TO TOWN
+centro,143,266,0	warp	tobg	3,2,ma_in01,14,24           //GOING TO THE BG PVP
+ma_in01,8,24,0	warp	tocent#bg	3,2,centro,143,262   		//GOING TO THE BACK TO TOWN
 
 
 
