@@ -618,7 +618,7 @@ function	script	F_KafSet	{
 		setarray @viewpY[0], 29, 207, 200, 326;
 	} else if (.@map$ == "alberta") {
 		setarray @wrpP[0], 1800, 1200, 1800, 1800;
-		setarray @wrpD$[0], "Centro, "Payon", "Morocc", "Prontera";
+		setarray @wrpD$[0], "Centro", "Payon", "Morocc", "Prontera";
 		setarray @viewpX[0], 28, 113, 0, 0;
 		setarray @viewpY[0], 229, 60, 0, 0;
 	} else if (.@map$ == "aldebaran") {
