@@ -624,8 +624,8 @@ callfunc("EF_Bubble");
 }
 
 //=============================FISHING SPOT DUPES=============================//
-centro,70,72,6	duplicate(Fishing Spot::FISHTEST)	Fishing Spot#2	10065
-centro,72,66,6	duplicate(Fishing Spot::FISHTEST)	Fishing Spot#3	10065
+centro,70,72,6	duplicate(Fishing Spot)	Fishing Spot#2	10065
+centro,72,66,6	duplicate(Fishing Spot)	Fishing Spot#3	10065
 
 //=============================FISHING ROD VENDOR=============================//
-cent_in01,124,125,7	shop	Fishing Vendor	560,38800:100000,388001:1000000,38802:10000000
+cent_in01,124,125,7	shop	Fishing Vendor	560,38800:100000,38801:1000000,38802:10000000
