@@ -34854,7 +34854,7 @@ Body:
     Buy: 20
     Weight: 10
     Script: |
-      vip_time(60*24*2);
+      vip_time(5);
   - Id: 35510
     AegisName: Arsenal_Costume_Fragment1
     Name: Arsenal Costume Fragment1
