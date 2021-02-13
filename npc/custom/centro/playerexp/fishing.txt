@@ -563,7 +563,7 @@ function	script	Fish_Spot_Initialize	{
 	return;
 }
 
-izlude,150,67,0	script	Test Spot::FISHTEST	723,{
+izlude,150,67,0	script	Fishing Spot::FISHTEST	10065,{
 Fishing_Start_Func(".rod_list",".bait_list");
 end;
 
@@ -622,3 +622,6 @@ setarray .fish_list$,"Mermaid|8000|5|180","Bass|10000|5|120","Hard Fish|2000|30|
 Fish_Spot_Initialize();
 callfunc("EF_Bubble");
 }
+
+//=============================FISHING ROD VENDOR=============================
+cent_in01,124,125,7	shop	Fishing Vendor	560,38800:100000,388001:1000000,38802:10000000
