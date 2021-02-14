@@ -448,7 +448,6 @@ function	script	Fishing_End_Func	{
 
 function	script	Fish_Reward_Func	{
 	sleep2 1000;
-	cutin "",255;
 	if(!playerattached()) Fishing_End_Func();	// add check to counter unexpected player not attach (server reload/disconnect/logout)
 	showscript "It's a "+getVariable(".fish"+strnpcinfo(3)+"$")+"!",getcharid2(3,getVariable(".charname"+strnpcinfo(3)+"$"));
 	sleep2 1000;
@@ -571,6 +570,7 @@ Fishing_Start_Func(".rod_list",".bait_list");
 end;
 
 OnSuccess:
+	cutin "",255;
 	emotion ET_BLABLA,getcharid(3,getVariable(".charname"+strnpcinfo(3)+"$"));
 	showscript "I got it!",getcharid2(3,getVariable(".charname"+strnpcinfo(3)+"$"));
 	specialeffect 6;
