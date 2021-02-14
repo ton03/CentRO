@@ -448,6 +448,7 @@ function	script	Fishing_End_Func	{
 
 function	script	Fish_Reward_Func	{
 	sleep2 1000;
+	cutin "",255;
 	if(!playerattached()) Fishing_End_Func();	// add check to counter unexpected player not attach (server reload/disconnect/logout)
 	showscript "It's a "+getVariable(".fish"+strnpcinfo(3)+"$")+"!",getcharid2(3,getVariable(".charname"+strnpcinfo(3)+"$"));
 	sleep2 1000;
@@ -570,7 +571,7 @@ Fishing_Start_Func(".rod_list",".bait_list");
 end;
 
 OnSuccess:
-	cutin "",255;
+	// cutin "",255;
 	emotion ET_BLABLA,getcharid(3,getVariable(".charname"+strnpcinfo(3)+"$"));
 	showscript "I got it!",getcharid2(3,getVariable(".charname"+strnpcinfo(3)+"$"));
 	specialeffect 6;
@@ -590,11 +591,11 @@ OnHit:
 	
 // Event without player attach =================================================================================
 OnCharacterGone:
-	cutin "",255;
+	// cutin "",255;
 	Fishing_End_Func();
 
 OnWrongTiming:
-	cutin "",255;
+	// cutin "",255;
 	emotion ET_SCRATCH,getcharid(3,getVariable(".charname"+strnpcinfo(3)+"$"));
 	showscript "I shouldn't pull at this situation...",getcharid2(3,getVariable(".charname"+strnpcinfo(3)+"$"));
 	specialeffect 5;
@@ -602,7 +603,7 @@ OnWrongTiming:
 	
 
 OnTimeOut:
-	cutin "",255;
+	// cutin "",255;
 	emotion ET_SCRATCH,getcharid(3,getVariable(".charname"+strnpcinfo(3)+"$"));
 	showscript "The bait is gone...",getcharid2(3,getVariable(".charname"+strnpcinfo(3)+"$"));
 	specialeffect 5;
@@ -611,7 +612,7 @@ OnTimeOut:
 
 
 OnRodGone:
-	cutin "",255;
+	// cutin "",255;
 	emotion ET_HUK,getcharid(3,getVariable(".charname"+strnpcinfo(3)+"$"));
 	showscript "Where is my rod?",getcharid2(3,getVariable(".charname"+strnpcinfo(3)+"$"));
 	specialeffect 5;
@@ -619,7 +620,7 @@ OnRodGone:
 
 
 OnFail:
-	cutin "",255;
+	// cutin "",255;
 	soundeffectall "fish_reel01.wav",0;
 	emotion ET_SWEAT,getcharid(3,getVariable(".charname"+strnpcinfo(3)+"$"));
 	showscript "I lost it...",getcharid2(3,getVariable(".charname"+strnpcinfo(3)+"$"));
