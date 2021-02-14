@@ -120,7 +120,6 @@ Function	script	Fishing_Main_Func	{
 			end;
 		}
 		specialeffect 6;
-		cutin "fish2.bmp",1;
 		soundeffectall "fish_start01.wav",0;
 		do{
 			// track item
@@ -145,6 +144,7 @@ Function	script	Fishing_Main_Func	{
 				end;
 			}
 			emotion ET_THINK;
+			cutin "fish2.bmp",2;
 			sleep 1500;
 			setVariable(".sec"+.@npc$,getVariable(".sec"+.@npc$)-1);
 			
@@ -157,6 +157,7 @@ Function	script	Fishing_Main_Func	{
 		showscript "Something hooked on!",getcharid2(3,getVariable(".charname"+strnpcinfo(3)+"$"));
 		
 		emotion ET_SURPRISE;
+		cutin "",255;
 		cutin "fish3.bmp",1;
 		soundeffectall "fish_act01.wav",0;
 		sleep .@hook_timeout;
