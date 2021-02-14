@@ -144,7 +144,6 @@ Function	script	Fishing_Main_Func	{
 				end;
 			}
 			emotion ET_THINK;
-			cutin "fish2.bmp",2;
 			sleep 1500;
 			setVariable(".sec"+.@npc$,getVariable(".sec"+.@npc$)-1);
 			
