@@ -64,7 +64,7 @@ setarray $@fish_data$,"Junk|500|0|junkitem|713:909:914:915",
 						"Bass|100|70|getitem|501:502:503",
 						"Fish Monster|75|100|mob|1070:1073",
 						"Strouf|75|120|mob|1065",
-						"Marina|75|120|mob|1141";
+						"Marina|75|120|mob|1141",
 						"Mermaid|100|80|useskill|28:34|2184",
 						"Evil Mermaid|100|80|useskill|86:184|2184",
 						"MVP Monster|-50|300|mob|2202:2319",
