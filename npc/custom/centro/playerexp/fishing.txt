@@ -55,7 +55,7 @@ setarray $@rod_data$,	"38800|0|0",
 setarray $@bait_data$,	"501|500|20",
 						"502|600|15",
 						"503|750|15",
-						"504|500|20",
+						"504|1000|20",
 						"505|400|25",
 						"506|500|60";		// bait data 					 "<bait id>|<delay before run>|<timeout>"
 											// $@bait_data$ value suggestion "<itemid> |<500~1000>		  |<10~60>"
