@@ -143,6 +143,7 @@ Function	script	Fishing_Main_Func	{
 				end;
 			}
 			emotion ET_THINK;
+			cutin "fish2.bmp",2;
 			sleep 1500;
 			setVariable(".sec"+.@npc$,getVariable(".sec"+.@npc$)-1);
 			
@@ -581,6 +582,7 @@ OnSuccess:
 OnHit:
 	emotion ET_PROFUSELY_SWEAT;
 	emotion ET_PROFUSELY_SWEAT,getcharid(3,getVariable(".charname"+strnpcinfo(3)+"$"));
+	cutin "fishing3.bmp",2;
 	specialeffect 4;
 	soundeffectall "fish_reel02.wav",0;
 	//setVariable(".timeout"+strnpcinfo(3),getVariable(".timeout"+strnpcinfo(3))+1);	// add 1 more sec on each successful hook
