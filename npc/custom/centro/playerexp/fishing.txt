@@ -113,7 +113,7 @@ Function	script	Fishing_Main_Func	{
 	
 		setVariable(".status"+.@npc$,1);
 		setVariable(".sec"+.@npc$,rand(4,8));
-		cutin "fish2.bmp",1;
+		cutin "fish2.bmp",2;
 		soundeffectall "fish_reel03.wav",0;
 		sleep 2000;
 		if(getVariable(".status"+.@npc$)!=1){
@@ -450,7 +450,6 @@ function	script	Fishing_End_Func	{
 
 function	script	Fish_Reward_Func	{
 	sleep2 1000;
-	cutin "",255;
 	if(!playerattached()) Fishing_End_Func();	// add check to counter unexpected player not attach (server reload/disconnect/logout)
 	showscript "It's a "+getVariable(".fish"+strnpcinfo(3)+"$")+"!",getcharid2(3,getVariable(".charname"+strnpcinfo(3)+"$"));
 	sleep2 1000;
