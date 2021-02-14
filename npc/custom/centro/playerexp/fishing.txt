@@ -423,13 +423,14 @@ function	script	Fishing_Start_Func	{
 
 function	script	Fishing_End_Func	{
 	//.@sleepduration = getarg(0);
+	sleep 1000;
+	cutin "",255;
+	if(!playerattached()) Fishing_End_Func();
 	.@npc$ = strnpcinfo(3);
 	delwaitingroom .@npc$;
 	.@name$ = getVariable(".charname"+.@npc$+"$");
 	.@aid = getcharid2(3,.@name$);
 	.@charid = getcharid2(0,.@name$);
-	sleep2 1000;
-	cutin "",255;
 	if(isloggedin(.@aid,.@charid)){
 		setd "@bindspot$","",getcharid2(0,getVariable(".charname"+.@npc$+"$"));
 	}
