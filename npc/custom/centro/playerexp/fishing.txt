@@ -114,12 +114,12 @@ Function	script	Fishing_Main_Func	{
 		setVariable(".status"+.@npc$,1);
 		setVariable(".sec"+.@npc$,rand(4,8));
 		soundeffectall "fish_reel03.wav",0;
+		cutin "fish2.bmp",2;
 		sleep 2000;
 		if(getVariable(".status"+.@npc$)!=1){
 			end;
 		}
 		specialeffect 6;
-		cutin "fish2.bmp",2;
 		soundeffectall "fish_start01.wav",0;
 		do{
 			// track item
