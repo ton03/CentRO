@@ -423,6 +423,7 @@ function	script	Fishing_Start_Func	{
 
 function	script	Fishing_End_Func	{
 	//.@sleepduration = getarg(0);
+	if(playerattached()) cutin "",255;
 	.@npc$ = strnpcinfo(3);
 	delwaitingroom .@npc$;
 	.@name$ = getVariable(".charname"+.@npc$+"$");
