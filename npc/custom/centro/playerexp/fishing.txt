@@ -156,7 +156,6 @@ Function	script	Fishing_Main_Func	{
 		showscript "Something hooked on!",getcharid2(3,getVariable(".charname"+strnpcinfo(3)+"$"));
 		
 		emotion ET_SURPRISE;
-		cutin "",255;
 		cutin "fish3.bmp",1;
 		soundeffectall "fish_act01.wav",0;
 		sleep .@hook_timeout;
