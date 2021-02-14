@@ -589,6 +589,7 @@ OnHit:
 	
 // Event without player attach =================================================================================
 OnCharacterGone:
+	cutin "",255;
 	Fishing_End_Func();
 
 OnWrongTiming:
@@ -600,6 +601,7 @@ OnWrongTiming:
 	
 
 OnTimeOut:
+	cutin "",255;
 	emotion ET_SCRATCH,getcharid(3,getVariable(".charname"+strnpcinfo(3)+"$"));
 	showscript "The bait is gone...",getcharid2(3,getVariable(".charname"+strnpcinfo(3)+"$"));
 	specialeffect 5;
@@ -608,6 +610,7 @@ OnTimeOut:
 
 
 OnRodGone:
+	cutin "",255;
 	emotion ET_HUK,getcharid(3,getVariable(".charname"+strnpcinfo(3)+"$"));
 	showscript "Where is my rod?",getcharid2(3,getVariable(".charname"+strnpcinfo(3)+"$"));
 	specialeffect 5;
@@ -615,6 +618,7 @@ OnRodGone:
 
 
 OnFail:
+	cutin "",255;
 	soundeffectall "fish_reel01.wav",0;
 	emotion ET_SWEAT,getcharid(3,getVariable(".charname"+strnpcinfo(3)+"$"));
 	showscript "I lost it...",getcharid2(3,getVariable(".charname"+strnpcinfo(3)+"$"));
