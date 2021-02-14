@@ -580,12 +580,14 @@ OnSuccess:
 	Fishing_End_Func();
 	
 OnHit:
+	cutin "fish3.bmp",2;
 	emotion ET_PROFUSELY_SWEAT;
 	emotion ET_PROFUSELY_SWEAT,getcharid(3,getVariable(".charname"+strnpcinfo(3)+"$"));
 	specialeffect 4;
 	soundeffectall "fish_reel02.wav",0;
 	//setVariable(".timeout"+strnpcinfo(3),getVariable(".timeout"+strnpcinfo(3))+1);	// add 1 more sec on each successful hook
 	end;
+	cutin "fish4.bmp",2;
 	
 // Event without player attach =================================================================================
 OnCharacterGone:
