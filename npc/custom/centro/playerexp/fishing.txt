@@ -598,7 +598,7 @@ OnWrongTiming:
 	showscript "I shouldn't pull at this situation...",getcharid2(3,getVariable(".charname"+strnpcinfo(3)+"$"));
 	specialeffect 5;
 	if(playerattached()) cutin "fish6.bmp",2;
-	sleep2 1000;
+	sleep 1000;
 	Fishing_End_Func();
 	
 
@@ -607,7 +607,7 @@ OnTimeOut:
 	showscript "The bait is gone...",getcharid2(3,getVariable(".charname"+strnpcinfo(3)+"$"));
 	specialeffect 5;
 	if(playerattached()) cutin "fish6.bmp",2;
-	sleep2 1000;
+	sleep 1000;
 	Fishing_End_Func();
 
 
@@ -617,7 +617,7 @@ OnRodGone:
 	showscript "Where is my rod?",getcharid2(3,getVariable(".charname"+strnpcinfo(3)+"$"));
 	specialeffect 5;
 	if(playerattached()) cutin "fish6.bmp",2;
-	sleep2 1000;
+	sleep 1000;
 	Fishing_End_Func();
 
 
@@ -627,7 +627,7 @@ OnFail:
 	showscript "I lost it...",getcharid2(3,getVariable(".charname"+strnpcinfo(3)+"$"));
 	if(playerattached()) cutin "fish6.bmp",2;
 	specialeffect 5;
-	sleep2 1000;
+	sleep 1000;
 	Fishing_End_Func();
 
 
