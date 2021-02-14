@@ -597,9 +597,9 @@ OnWrongTiming:
 	emotion ET_SCRATCH,getcharid(3,getVariable(".charname"+strnpcinfo(3)+"$"));
 	showscript "I shouldn't pull at this situation...",getcharid2(3,getVariable(".charname"+strnpcinfo(3)+"$"));
 	specialeffect 5;
-	if(playerattached()) cutin "fish6.bmp",2;
+	cutin "fish6.bmp",2;
 	sleep2 1000;
-	if(playerattached()) cutin "",255;
+	cutin "",255;
 	Fishing_End_Func();
 	
 
@@ -607,9 +607,9 @@ OnTimeOut:
 	emotion ET_SCRATCH,getcharid(3,getVariable(".charname"+strnpcinfo(3)+"$"));
 	showscript "The bait is gone...",getcharid2(3,getVariable(".charname"+strnpcinfo(3)+"$"));
 	specialeffect 5;
-	if(playerattached()) cutin "fish6.bmp",2;
+	cutin "fish6.bmp",2;
 	sleep2 1000;
-	if(playerattached()) cutin "",255;
+	cutin "",255;
 	Fishing_End_Func();
 
 
@@ -618,9 +618,9 @@ OnRodGone:
 	emotion ET_HUK,getcharid(3,getVariable(".charname"+strnpcinfo(3)+"$"));
 	showscript "Where is my rod?",getcharid2(3,getVariable(".charname"+strnpcinfo(3)+"$"));
 	specialeffect 5;
-	if(playerattached()) cutin "fish6.bmp",2;
+	cutin "fish6.bmp",2;
 	sleep2 1000;
-	if(playerattached()) cutin "",255;
+	cutin "",255;
 	Fishing_End_Func();
 
 
@@ -628,10 +628,10 @@ OnFail:
 	soundeffectall "fish_reel01.wav",0;
 	emotion ET_SWEAT,getcharid(3,getVariable(".charname"+strnpcinfo(3)+"$"));
 	showscript "I lost it...",getcharid2(3,getVariable(".charname"+strnpcinfo(3)+"$"));
-	if(playerattached()) cutin "fish6.bmp",2;
+	cutin "fish6.bmp",2;
 	specialeffect 5;
 	sleep2 1000;
-	if(playerattached()) cutin "",255;
+	cutin "",255;
 	Fishing_End_Func();
 
 
