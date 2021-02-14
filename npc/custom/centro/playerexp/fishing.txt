@@ -442,13 +442,13 @@ function	script	Fishing_End_Func	{
 		hideoffnpc .@npc$;
 	}
 	*/
-	cutin "",255;
 	setVariable(".status"+.@npc$,0);
 	end;
 }
 
 function	script	Fish_Reward_Func	{
 	sleep2 1000;
+	cutin "",255;
 	if(!playerattached()) Fishing_End_Func();	// add check to counter unexpected player not attach (server reload/disconnect/logout)
 	showscript "It's a "+getVariable(".fish"+strnpcinfo(3)+"$")+"!",getcharid2(3,getVariable(".charname"+strnpcinfo(3)+"$"));
 	sleep2 1000;
@@ -531,7 +531,6 @@ function	script	Fish_Reward_Func	{
 		showscript "It's "+callfunc("F_InsertArticle",getitemname(.@item))+"!",getcharid2(3,getVariable(".charname"+strnpcinfo(3)+"$"));
 		getitem .@item,1,getcharid2(3,getVariable(".charname"+strnpcinfo(3)+"$"));
 	}
-	cutin "",255;
 	return;
 }
 
