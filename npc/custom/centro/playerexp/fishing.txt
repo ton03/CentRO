@@ -599,6 +599,7 @@ OnWrongTiming:
 	specialeffect 5;
 	if(playerattached()) cutin "fish6.bmp",2;
 	sleep 1000;
+	if(playerattached()) cutin "",255;
 	Fishing_End_Func();
 	
 
@@ -608,6 +609,7 @@ OnTimeOut:
 	specialeffect 5;
 	if(playerattached()) cutin "fish6.bmp",2;
 	sleep 1000;
+	if(playerattached()) cutin "",255;
 	Fishing_End_Func();
 
 
@@ -618,6 +620,7 @@ OnRodGone:
 	specialeffect 5;
 	if(playerattached()) cutin "fish6.bmp",2;
 	sleep 1000;
+	if(playerattached()) cutin "",255;
 	Fishing_End_Func();
 
 
@@ -628,6 +631,7 @@ OnFail:
 	if(playerattached()) cutin "fish6.bmp",2;
 	specialeffect 5;
 	sleep 1000;
+	if(playerattached()) cutin "",255;
 	Fishing_End_Func();
 
 
