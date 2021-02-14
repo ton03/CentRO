@@ -423,6 +423,8 @@ function	script	Fishing_Start_Func	{
 
 function	script	Fishing_End_Func	{
 	//.@sleepduration = getarg(0);
+	sleep2 1000;
+	cutin "",255;
 	.@npc$ = strnpcinfo(3);
 	delwaitingroom .@npc$;
 	.@name$ = getVariable(".charname"+.@npc$+"$");
@@ -585,7 +587,6 @@ OnHit:
 	emotion ET_PROFUSELY_SWEAT,getcharid(3,getVariable(".charname"+strnpcinfo(3)+"$"));
 	specialeffect 4;
 	soundeffectall "fish_reel02.wav",0;
-	cutin "fish4.bmp",2;
 	//setVariable(".timeout"+strnpcinfo(3),getVariable(".timeout"+strnpcinfo(3))+1);	// add 1 more sec on each successful hook
 	end;
 	
@@ -597,7 +598,6 @@ OnWrongTiming:
 	emotion ET_SCRATCH,getcharid(3,getVariable(".charname"+strnpcinfo(3)+"$"));
 	showscript "I shouldn't pull at this situation...",getcharid2(3,getVariable(".charname"+strnpcinfo(3)+"$"));
 	specialeffect 5;
-	cutin "",255;
 	Fishing_End_Func();
 	
 
@@ -605,7 +605,6 @@ OnTimeOut:
 	emotion ET_SCRATCH,getcharid(3,getVariable(".charname"+strnpcinfo(3)+"$"));
 	showscript "The bait is gone...",getcharid2(3,getVariable(".charname"+strnpcinfo(3)+"$"));
 	specialeffect 5;
-	cutin "",255;
 	Fishing_End_Func();
 
 
@@ -614,7 +613,6 @@ OnRodGone:
 	emotion ET_HUK,getcharid(3,getVariable(".charname"+strnpcinfo(3)+"$"));
 	showscript "Where is my rod?",getcharid2(3,getVariable(".charname"+strnpcinfo(3)+"$"));
 	specialeffect 5;
-	cutin "",255;
 	Fishing_End_Func();
 
 
@@ -623,7 +621,6 @@ OnFail:
 	emotion ET_SWEAT,getcharid(3,getVariable(".charname"+strnpcinfo(3)+"$"));
 	showscript "I lost it...",getcharid2(3,getVariable(".charname"+strnpcinfo(3)+"$"));
 	specialeffect 5;
-	cutin "",255;
 	Fishing_End_Func();
 
 
