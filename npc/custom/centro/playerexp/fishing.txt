@@ -156,7 +156,6 @@ Function	script	Fishing_Main_Func	{
 		showscript "Something hooked on!",getcharid2(3,getVariable(".charname"+strnpcinfo(3)+"$"));
 		
 		emotion ET_SURPRISE;
-		cutin "fish3.bmp",1;
 		soundeffectall "fish_act01.wav",0;
 		sleep .@hook_timeout;
 		
@@ -253,9 +252,7 @@ Function	script	Fishing_Main_Func	{
 				}else{
 					setVariable(".index_start"+.@npc$,getVariable(".index_start"+.@npc$)-1);
 					setVariable(".str"+.@npc$+"$",insertchar(getd("$@Indicator_prefix$["+getVariable(".index_start"+.@npc$)+"]"), "l", getVariable(".index"+.@npc$)));
-					cutin "fish3.bmp",2;
 					delwaitingroom .@npc$;
-					cutin "fish4.bmp",2;
 					waitingroom getVariable(".str"+.@npc$+"$"),0;
 					if($@Fishing_Debug) debugmes "OnHit";
 					doevent strnpcinfo(3)+"::OnHit";
@@ -445,8 +442,8 @@ function	script	Fishing_End_Func	{
 		hideoffnpc .@npc$;
 	}
 	*/
-	setVariable(".status"+.@npc$,0);
 	cutin "",255;
+	setVariable(".status"+.@npc$,0);
 	end;
 }
 
@@ -533,8 +530,8 @@ function	script	Fish_Reward_Func	{
 		emotion ET_SEXY,getcharid(3,getVariable(".charname"+strnpcinfo(3)+"$"));
 		showscript "It's "+callfunc("F_InsertArticle",getitemname(.@item))+"!",getcharid2(3,getVariable(".charname"+strnpcinfo(3)+"$"));
 		getitem .@item,1,getcharid2(3,getVariable(".charname"+strnpcinfo(3)+"$"));
-		cutin "",255;
 	}
+	cutin "",255;
 	return;
 }
 
