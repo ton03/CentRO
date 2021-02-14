@@ -60,19 +60,19 @@ setarray $@bait_data$,	"501|500|20",
 						"506|500|60";		// bait data 					 "<bait id>|<delay before run>|<timeout>"
 											// $@bait_data$ value suggestion "<itemid> |<500~1000>		  |<10~60>"
 setarray $@fish_data$,"Junk|500|0|junkitem|713:909:914:915",
-						// "Fish|100|50|getfish|6049:6771:6774:6778:6779:6780:6096",
-						// "Bass|100|70|getitem|501:502:503",
+						"Fish|100|50|getfish|6049:6771:6774:6778:6779:6780:6096",
+						"Bass|100|70|getitem|501:502:503",
 						"Fish Monster|75|100|mob|1070:1073",
 						"Strouf|75|120|mob|1065",
 						"Marina|75|120|mob|1141";
-						// "Mermaid|100|80|useskill|28:34|2184",
-						// "Evil Mermaid|100|80|useskill|86:184|2184",
-						// "MVP Monster|-50|300|mob|2202:2319",
-						// "Frog|100|40|mob|2678:2679",
-						// "Shark",
-						// "Mackerel",
-						// "Thief Fish|100|70|delitem|501:502:503",
-						// "Hard Fish|100|70|getitem|6241";		// fish data 					 "<fish name>|<fish speed>	|<variation>	|<mode>					 	   |<mode data>	  |<additional data>"
+						"Mermaid|100|80|useskill|28:34|2184",
+						"Evil Mermaid|100|80|useskill|86:184|2184",
+						"MVP Monster|-50|300|mob|2202:2319",
+						"Frog|100|40|mob|2678:2679",
+						"Shark",
+						"Mackerel",
+						"Thief Fish|100|70|delitem|501:502:503",
+						"Hard Fish|100|70|getitem|6241";		// fish data 					 "<fish name>|<fish speed>	|<variation>	|<mode>					 	   |<mode data>	  |<additional data>"
 																// $@fish_data$ value suggestion "<fish name>|<0~500>		|<10~500>		|<getitem/delitem/useskill/mob>|<itemid/mobid>|<use by mob mode only>"
 }
 
