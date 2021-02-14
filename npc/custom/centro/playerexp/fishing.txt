@@ -423,8 +423,6 @@ function	script	Fishing_Start_Func	{
 
 function	script	Fishing_End_Func	{
 	//.@sleepduration = getarg(0);
-	sleep 1000;
-	cutin "",255;
 	.@npc$ = strnpcinfo(3);
 	delwaitingroom .@npc$;
 	.@name$ = getVariable(".charname"+.@npc$+"$");
@@ -594,6 +592,7 @@ OnCharacterGone:
 	Fishing_End_Func();
 
 OnWrongTiming:
+	cutin "",255;
 	emotion ET_SCRATCH,getcharid(3,getVariable(".charname"+strnpcinfo(3)+"$"));
 	showscript "I shouldn't pull at this situation...",getcharid2(3,getVariable(".charname"+strnpcinfo(3)+"$"));
 	specialeffect 5;
