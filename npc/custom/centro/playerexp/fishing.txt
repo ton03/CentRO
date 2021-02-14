@@ -624,7 +624,7 @@ OnInit:
 // =========================< Rod & Bait Effect >========================================================================
 setarray .rod_list,38800,38801,38802;			// rod allow to use		(Copy from $@rod_data$)
 setarray .bait_list,504,505,506;				// bait consume id		(Copy from $@bait_data$)
-setarray .fish_list$,"Mermaid|8000|5|180","Strouf|2000|5|120","Hard Fish|10000|30|120";				// fish list in this npc (Copy from $@fish_data$) string as id (Example: setarray .fish_list$,"Bass|<rate>"; > "Bass|<rate>|<maximum fish>|<delay in sec>")
+setarray .fish_list$,"Mermaid|2000|5|180","Strouf|2000|5|120","Hard Fish|10000|30|120";				// fish list in this npc (Copy from $@fish_data$) string as id (Example: setarray .fish_list$,"Bass|<rate>"; > "Bass|<rate>|<maximum fish>|<delay in sec>")
 //setarray .junk_list,501,502,503;
 // ======================================================================================================================
 Fish_Spot_Initialize();
