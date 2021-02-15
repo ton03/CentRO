@@ -42655,7 +42655,7 @@ Body:
     UnEquipScript: |
       heal 0,((getrefine()>14)?-2000:-3000);
 #=========================================================================================================#
-#============================================CENT RO FREEBIES=============================================#
+#============================================CENT RO EQUIPMENT============================================#
 #=========================================================================================================#
   - Id: 38000
     AegisName: Centro_Headgear
@@ -42778,13 +42778,12 @@ Body:
       bonus2 bAddRace,RC_Player_Human,10;
       bonus2 bAddEff2,Eff_Sleep,10;
 #=========================================================================================================#
-#============================================FISHING RODS=================================================#
+#============================================CENTRO ETC / 37000 ==========================================#
 #=========================================================================================================#
-  - Id: 38800
-    AegisName: Wooden_Fishing_Rod
-    Name: Wooden_Fishing_Rod
-    Type: Weapon
-    SubType: 2hSword
+  - Id: 37000
+    AegisName: Crude_Fishing_Rod
+    Name: Crude_Fishing_Rod
+    Type: Armor
     Buy: 2000
     Weight: 1000
     Attack: 60
@@ -42796,15 +42795,13 @@ Body:
       Knight: true
       Swordman: true
     Locations:
-      Both_Hand: true
-    WeaponLevel: 1
+      Both_Accessory: true
     EquipLevelMin: 4
     Refineable: false
-  - Id: 38801
-    AegisName: Bamboo_Fishing_Rod
-    Name: Bamboo_Fishing_Rod
-    Type: Weapon
-    SubType: 2hSword
+  - Id: 37001
+    AegisName: Greater_Fishing_Rod
+    Name: Greater_Fishing_Rod
+    Type: Armor
     Buy: 2000
     Weight: 1000
     Attack: 60
@@ -42816,15 +42813,13 @@ Body:
       Knight: true
       Swordman: true
     Locations:
-      Both_Hand: true
-    WeaponLevel: 1
+      Both_Accessory: true
     EquipLevelMin: 4
     Refineable: false
-  - Id: 38802
-    AegisName: Metallic_Fishing_Rod
-    Name: Metallic_Fishing_Rod
-    Type: Weapon
-    SubType: 2hSword
+  - Id: 37002
+    AegisName: Superior_Fishing_Rod
+    Name: Superior_Fishing_Rod
+    Type: Armor
     Buy: 2000
     Weight: 1000
     Attack: 60
@@ -42836,8 +42831,60 @@ Body:
       Knight: true
       Swordman: true
     Locations:
-      Both_Hand: true
-    WeaponLevel: 1
+      Both_Accessory: true
     EquipLevelMin: 4
     Refineable: false
-
+  - Id: 37004
+    AegisName: Copper_Cent_1
+    Name: Copper Cent 1
+    Type: Etc
+  - Id: 37005
+    AegisName: Silver_Cent_10
+    Name: Silver Cent 10
+    Type: Etc
+  - Id: 37006
+    AegisName: Gold_Cent_100
+    Name: Gold Cent 100
+    Type: Etc
+  - Id: 37007
+    AegisName: Royal_Cent_1000
+    Name: Royal Cent 1000
+    Type: Etc
+#=========================================================================================================#
+#============================================CENTRO COSTUMES / 36000 =====================================#
+#=========================================================================================================#
+#=========================================================================================================#
+#============================================CENTRO USABLES / 39000 ======================================#
+#=========================================================================================================#
+  - Id: 39000
+    AegisName: Cent_VIP_30D
+    Name: Cent VIP 30D
+    Type: Healing
+    Buy: 20
+    Weight: 10
+    Script: |
+      vip_time(60*24*30);
+  - Id: 39001
+    AegisName: Cent_VIP_7D
+    Name: Cent VIP 7D
+    Type: Healing
+    Buy: 20
+    Weight: 10
+    Script: |
+      vip_time(60*24*7);
+  - Id: 39002
+    AegisName: Cent_VIP_3D
+    Name: Cent VIP 3D
+    Type: Healing
+    Buy: 20
+    Weight: 10
+    Script: |
+      vip_time(60*24*3);
+  - Id: 39003
+    AegisName: Cent_VIP_1D
+    Name: Cent VIP 1D
+    Type: Healing
+    Buy: 20
+    Weight: 10
+    Script: |
+      vip_time(60*24);
