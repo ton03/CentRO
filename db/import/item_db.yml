@@ -42778,9 +42778,9 @@ Body:
       bonus2 bAddRace,RC_Player_Human,10;
       bonus2 bAddEff2,Eff_Sleep,10;
 #=========================================================================================================#
-#============================================CENTRO ETC / 37000 ==========================================#
+#============================================CENTRO ETC / 40000 ==========================================#
 #=========================================================================================================#
-  - Id: 37000
+  - Id: 40000
     AegisName: Crude_Fishing_Rod
     Name: Crude_Fishing_Rod
     Type: Armor
@@ -42798,7 +42798,7 @@ Body:
       Both_Accessory: true
     EquipLevelMin: 4
     Refineable: false
-  - Id: 37001
+  - Id: 40001
     AegisName: Greater_Fishing_Rod
     Name: Greater_Fishing_Rod
     Type: Armor
@@ -42816,7 +42816,7 @@ Body:
       Both_Accessory: true
     EquipLevelMin: 4
     Refineable: false
-  - Id: 37002
+  - Id: 40002
     AegisName: Superior_Fishing_Rod
     Name: Superior_Fishing_Rod
     Type: Armor
@@ -42834,24 +42834,24 @@ Body:
       Both_Accessory: true
     EquipLevelMin: 4
     Refineable: false
-  - Id: 37004
+  - Id: 40004
     AegisName: Copper_Cent_1
     Name: Copper Cent 1
     Type: Etc
-  - Id: 37005
+  - Id: 40005
     AegisName: Silver_Cent_10
     Name: Silver Cent 10
     Type: Etc
-  - Id: 37006
+  - Id: 40006
     AegisName: Gold_Cent_100
     Name: Gold Cent 100
     Type: Etc
-  - Id: 37007
+  - Id: 40007
     AegisName: Royal_Cent_1000
     Name: Royal Cent 1000
     Type: Etc
 #=========================================================================================================#
-#============================================CENTRO COSTUMES / 36000 =====================================#
+#============================================CENTRO COSTUMES / 41000 =====================================#
 #=========================================================================================================#
 #=========================================================================================================#
 #============================================CENTRO USABLES / 39000 ======================================#
