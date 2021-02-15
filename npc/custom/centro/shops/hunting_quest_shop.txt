@@ -1,0 +1,271 @@
+//===== rAthena Script =======================================
+//= Euphy's Quest Shop
+//===== By: ==================================================
+//= Euphy
+//===== Current Version: =====================================
+//= 1.6c
+//===== Compatible With: =====================================
+//= rAthena Project
+//===== Description: =========================================
+//= A dynamic quest shop based on Lunar's, with easier config.
+//= Includes support for multiple shops & cashpoints.
+//= Item Preview script by ToastOfDoom.
+//===== Additional Comments: =================================
+//= 1.0 Initial script.
+//= 1.2 Added category support.
+//= 1.3 More options and fixes.
+//= 1.4 Added debug settings.
+//= 1.5 Replaced categories with shop IDs.
+//= 1.6 Added support for purchasing stackables.
+//= 1.6a Added support for previewing costumes and robes.
+//= 1.6b Added 'disable_items' command.
+//= 1.6c Replaced function 'A_An' with "F_InsertArticle".
+//============================================================
+
+// Shop NPCs -- supplying no argument displays entire menu.
+//	callfunc "qshop_hunting_quest"{,<shop ID>{,<shop ID>{,...}}};
+//============================================================
+centro,127,140,4	script	Hunting Quest Shop#1	702,{ callfunc "qshop_hunting_quest"; }
+
+
+// Script Core
+//============================================================
+-	script	quest_shop4	-1,{ 
+function Add; function Chk; function Slot;
+OnInit:
+	freeloop(1);
+
+// -----------------------------------------------------------
+//  Basic shop settings.
+// -----------------------------------------------------------
+
+	set .Announce,0;	// Announce quest completion? (1: yes / 0: no)
+	set .ShowSlot,1;	// Show item slots? (2: all equipment / 1: if slots > 0 / 0: never)
+	set .ShowID,0;  	// Show item IDs? (1: yes / 0: no)
+	set .ShowZeny,0;	// Show Zeny cost, if any? (1: yes / 0: no)
+	set .MaxStack,100;	// Max number of quest items purchased at one time.
+
+// -----------------------------------------------------------
+//  Points variable -- optional quest requirement.
+//	setarray .Points$[0],"<variable name>","<display name>";
+// -----------------------------------------------------------
+
+	setarray .Points$[0],"#HUNT_Q_POINTS","Cash Points";
+
+// -----------------------------------------------------------
+//  Shop IDs -- to add shops, copy dummy data at bottom of file.
+//	setarray .Shops$[1],"<Shop 1>","<Shop 2>"{,...};
+// -----------------------------------------------------------
+
+	setarray .Shops$[1],"Supplies","Equipment","Costumes";
+
+// -----------------------------------------------------------
+//  Quest items -- do NOT use a reward item more than once!
+//	Add(<shop ID>,<reward ID>,<reward amount>,
+//	    <Zeny cost>,<point cost>,
+//	    <required item ID>,<required item amount>{,...});
+// -----------------------------------------------------------
+
+  // Supplies
+	Add(1, 35526, 1, 0, 0, 7729, 2); // Arsenal Siege Box
+	Add(1, 12214, 1, 0, 0, 7729, 5); // Convex Mirror
+	Add(1, 14170, 1, 0, 0, 7729, 8); // Increase Agi Box (10)
+	Add(1, 12913, 1, 0, 0, 7729, 8); // Blessing Box (10)
+	Add(1, 35714, 1, 0, 0, 7729, 8); // Slim White Potion Creation Kit 
+	Add(1, 13989, 1, 0, 0, 7729, 10); // Acid Demo Box (10)
+	Add(1, 14004, 1, 0, 0, 7729, 10); // Poison Bottle Box (10)
+	Add(1, 12412, 1, 0, 0, 7729, 20); // HE BBG
+	Add(1, 6223, 1, 0, 0, 7729, 40); // Carnium
+	Add(1, 35702, 1, 0, 0, 7729, 30); // WOE Gacha Box 1
+	Add(1, 35703, 1, 0, 0, 7729, 20); // WOE Gacha Box 2
+	Add(1, 35704, 1, 0, 0, 7729, 20); // WOE Gacha Box 3
+	Add(1, 35705, 1, 0, 0, 7729, 20); // WOE Gacha Box 4
+	Add(1, 35706, 1, 0, 0, 7729, 20); // WOE Gacha Box 5
+	Add(1, 12103, 1, 0, 0, 7729, 60); // Bloody Branch
+	Add(1, 35523, 1, 0, 0, 7729, 200); // Card Extraction Tool
+	Add(1, 35513, 1, 0, 0, 7729, 800); // Boarding Halter 7D
+	Add(1, 35504, 1, 0, 0, 7729, 400); // VIP 7D
+	Add(1, 35503, 1, 0, 0, 7729, 1000); // VIP 30D
+	Add(1, 35527, 1, 0, 0, 7729, 2000); // Arsenal Cash Voucher (P250 / 500Red)
+
+	// Equips
+	Add(2, 5320, 1, 0, 0, 7729, 600); // Champion Wreath
+	Add(2, 5431, 1, 0, 0, 7729, 800); // Chicken Hat
+	Add(2, 5388, 1, 0, 0, 7729, 800); // Snake Head
+	Add(2, 18505, 1, 0, 0, 7729, 800); // Umbala Spirit
+	Add(2, 5403, 1, 0, 0, 7729, 1000); // Fish in Mouth
+	Add(2, 5463, 1, 0, 0, 7729, 1200); // Rainbow Scarf
+	Add(2, 5293, 1, 0, 0, 7729, 1200); // Ramen Hat
+	Add(2, 5325, 1, 0, 0, 7729, 1600); // Robo Eyes
+	Add(2, 5548, 1, 0, 0, 7729, 2000); // Crimson Rose
+	Add(2, 18539, 1, 0, 0, 7729, 2000); // Skull Cap
+	Add(2, 5286, 1, 0, 0, 7729, 2500); // Pecopeco Hairband
+	Add(2, 5137, 1, 0, 0, 7729, 6000); // Alice Doll
+
+	// Costumes
+	Add(3, 35715, 1, 0, 0, 7729, 1500); // Protect Feather 45D
+	Add(3, 35522, 1, 0, 0, 7729, 4000); // Autoloot Dog 30D
+	Add(3, 19624, 1, 0, 0, 7729, 1200); // Blank Eyes
+	Add(3, 20314, 1, 0, 0, 7729, 1200); // New Wave Sunglasses
+	Add(3, 31290, 1, 0, 0, 7729, 1300); // Angel's Feather Cap
+	Add(3, 31291, 1, 0, 0, 7729, 1300); // Devil's Feather Cap
+	Add(3, 19776, 1, 0, 0, 7729, 2000); // Moving Elven Ears
+	Add(3, 31055, 1, 0, 0, 7729, 2000); // Poring Soap Pipe
+	Add(3, 31236, 1, 0, 0, 7729, 2000); // Vicious Mind Aura
+	Add(3, 31396, 1, 0, 0, 7729, 4000); // Sorcerer Hood
+	Add(3, 19807, 1, 0, 0, 7729, 4000); // Majestic Helmet
+	Add(3, 31180, 1, 0, 0, 7729, 4000); // King Sura Headband
+	Add(3, 31057, 1, 0, 0, 7729, 4000); // Eremes Scarf
+	Add(3, 35016, 1, 0, 0, 7729, 4000); // Megumin
+	Add(3, 31415, 1, 0, 0, 7729, 4000); // Wanderer's Sakkat
+	Add(3, 31699, 1, 0, 0, 7729, 4000); // Smiling Eyes
+	Add(3, 20315, 1, 0, 0, 7729, 4000); // Analyze Eye
+	Add(3, 36041, 1, 0, 0, 7729, 6000); // Mystic Hoodie
+	
+// -----------------------------------------------------------
+
+	freeloop(0);
+	set .menu$,"";
+	for(set .@i2,1; .@i2<=getarraysize(.Shops$); set .@i2,.@i2+1) {
+		set .menu$, .menu$+.Shops$[.@i2]+":";
+		npcshopdelitem "qshop_hunting_quest"+.@i2,909;
+	}
+	end;
+
+OnMenu:
+	set .@size, getarraysize(@i2);
+	if (!.@size) set @shop_index, select(.menu$);
+	else if (.@size == 1) set @shop_index, @i2[0];
+	else {
+		for(set .@j,0; .@j<.@size; set .@j,.@j+1)
+			set .@menu$, .@menu$+.Shops$[@i2[.@j]]+":";
+		set @shop_index, @i2[select(.@menu$)-1];
+	}
+	deletearray @i2[0],getarraysize(@i2);
+	if (.Shops$[@shop_index] == "") {
+		message strcharinfo(0),"An error has occurred.";
+		end;
+	}
+	callshop "qshop_hunting_quest"+@shop_index,1;
+	npcshopattach "qshop_hunting_quest"+@shop_index;
+	end;
+
+OnBuyItem:
+	// .@q[] : RewardID, BoughtAmt, RewardAmt, BaseAmt, ReqZeny, ReqPts, { ReqItem, ReqAmt, ... }
+	setarray .@q[0],@bought_nameid[0],((@bought_quantity[0] > .MaxStack)?.MaxStack:@bought_quantity[0]);
+	copyarray .@q[3],getd(".q_"+@shop_index+"_"+.@q[0]+"[0]"),getarraysize(getd(".q_"+@shop_index+"_"+.@q[0]));
+	set .@q[2],.@q[1]*.@q[3];
+	if (!.@q[2] || .@q[2] > 30000) {
+		message strcharinfo(0),"You can't purchase that many "+getitemname(.@q[0])+".";
+		end;
+	}
+	mes "[ ^9933CCHunting Quest Shop^000000 ]";
+	mes "Reward: ^0055FF"+((.@q[2] > 1)?.@q[2]+"x ":"")+Slot(.@q[0])+"^000000";
+	mes "Requirements:";
+	disable_items;
+	if (.@q[4]) mes " > "+Chk(Zeny,.@q[4]*.@q[1])+(.@q[4]*.@q[1])+" Zeny^000000";
+	if (.@q[5]) mes " > "+Chk(getd(.Points$[0]),.@q[5]*.@q[1])+(.@q[5]*.@q[1])+" "+.Points$[1]+" ("+getd(.Points$[0])+"/"+(.@q[5]*.@q[1])+")^000000";
+	if (.@q[6]) for(set .@i2,6; .@i2<getarraysize(.@q); set .@i2,.@i2+2)
+		mes " > "+Chk(countitem(.@q[.@i2]),.@q[.@i2+1]*.@q[1])+((.ShowID)?"{"+.@q[.@i2]+"} ":"")+Slot(.@q[.@i2])+" ("+countitem(.@q[.@i2])+"/"+(.@q[.@i2+1]*.@q[1])+")^000000";
+	next;
+	setarray @qe[1], getiteminfo(.@q[0],5), getiteminfo(.@q[0],11);
+	if (@qe[2] > 0 && ((@qe[1] & 1) || (@qe[1] & 256) || (@qe[1] & 512) || (@qe[1] & 1024) || (@qe[1] & 2048) || (@qe[1] & 4096) || (@qe[1] & 4) || (@qe[1] & 8192)))
+		set .@preview,1;
+	addtimer 1000, strnpcinfo(0)+"::OnEnd";
+	while(1) {
+		switch(select(" ~ Purchase ^0055FF"+getitemname(.@q[0])+"^000000:"+((.@preview && !@qe[7])?" ~ Preview...":"")+": ~ ^777777Cancel^000000")) {
+		case 1:
+			if (@qe[0]) { 
+				mes "[ ^9933CCHunting Quest Shop^000000 ]";
+				mes "You do not have enough";
+				mes "^DD8800Arsenal Hunting Badges^000000";
+				mes " ";
+				mes "Go and hunt some more, kiddo!";
+				close;
+			}
+			if (!checkweight(.@q[0],.@q[2])) {
+				mes "[ ^9933CCHunting Quest Shop^000000 ]";
+				mes "^FF0000You need "+(((.@q[2]*getiteminfo(.@q[0],6))+Weight-MaxWeight)/10)+" additional weight capacity to complete this trade.^000000";
+				close;
+			}
+			if (.@q[4]) set Zeny, Zeny-(.@q[4]*.@q[1]);
+			if (.@q[5]) setd .Points$[0], getd(.Points$[0])-(.@q[5]*.@q[1]);
+			if (.@q[6]) for(set .@i2,6; .@i2<getarraysize(.@q); set .@i2,.@i2+2)
+				delitem .@q[.@i2],.@q[.@i2+1]*.@q[1];
+			getitembound .@q[0],.@q[2],1;
+			if (.Announce) announce strcharinfo(0)+" has created "+((.@q[2] > 1)?.@q[2]+"x "+getitemname(.@q[0]):callfunc("F_InsertArticle",getitemname(.@q[0])))+"!",0;
+			specialeffect2 EF_FLOWERLEAF;
+			close;
+		case 2:
+			setarray @qe[3], getlook(LOOK_HEAD_BOTTOM), getlook(LOOK_HEAD_TOP), getlook(LOOK_HEAD_MID), getlook(LOOK_ROBE), 1;
+			if ((@qe[1] & 1) || (@qe[1] & 4096)) changelook LOOK_HEAD_BOTTOM, @qe[2];
+			else if ((@qe[1] & 256) || (@qe[1] & 1024)) changelook LOOK_HEAD_TOP, @qe[2];
+			else if ((@qe[1] & 512) || (@qe[1] & 2048)) changelook LOOK_HEAD_MID, @qe[2];
+			else if ((@qe[1] & 4) || (@qe[1] & 8192)) changelook LOOK_ROBE, @qe[2];
+			break;
+		case 3:
+			close;
+		}
+	}
+
+OnEnd:
+	if (@qe[7]) {
+		changelook LOOK_HEAD_BOTTOM, @qe[3];
+		changelook LOOK_HEAD_TOP, @qe[4];
+		changelook LOOK_HEAD_MID, @qe[5];
+		changelook LOOK_ROBE, @qe[6];
+	}
+	deletearray @qe[0],8;
+	end;
+
+function Add {
+	if (getitemname(getarg(1)) == "null") {
+		debugmes "Quest reward #"+getarg(1)+" invalid (skipped).";
+		return;
+	}
+	setarray .@j[0],getarg(2),getarg(3),getarg(4);
+	for(set .@i2,5; .@i2<getargcount(); set .@i2,.@i2+2) {
+		if (getitemname(getarg(.@i2)) == "null") {
+			debugmes "Quest requirement #"+getarg(.@i2)+" invalid (skipped).";
+			return;
+		} else
+			setarray .@j[.@i2-2],getarg(.@i2),getarg(.@i2+1);
+	}
+	copyarray getd(".q_"+getarg(0)+"_"+getarg(1)+"[0]"),.@j[0],getarraysize(.@j);
+	// npcshopadditem "qshop_hunting_quest"+getarg(0),getarg(1),((.ShowZeny)?getarg(3):0);
+	npcshopadditem "qshop_hunting_quest"+getarg(0),getarg(1),getarg(6); // Show hunting badge count
+	return;
+}
+
+function Chk {
+	if (getarg(0) < getarg(1)) {
+		set @qe[0],1;
+		return "^FF0000";
+	} else
+		return "^00FF00";
+}
+
+function Slot {
+	set .@s$,getitemname(getarg(0));
+	switch(.ShowSlot) {
+		case 1: if (!getitemslots(getarg(0))) return .@s$;
+		case 2: if (getiteminfo(getarg(0),2) == 4 || getiteminfo(getarg(0),2) == 5) return .@s$+" ["+getitemslots(getarg(0))+"]";
+		default: return .@s$;
+	}
+}
+}
+
+function	script	qshop_hunting_quest	{
+	deletearray @i2[0],getarraysize(@i2);
+	for(set .@i2,0; .@i2<getargcount(); set .@i2,.@i2+1)
+		set @i2[.@i2],getarg(.@i2);
+	doevent "quest_shop4::OnMenu";
+	end;
+}
+
+
+// Dummy shop data -- copy as needed.
+//============================================================
+-	shop	qshop_hunting_quest1	-1,909:-1
+-	shop	qshop_hunting_quest2	-1,909:-1
+-	shop	qshop_hunting_quest3	-1,909:-1
