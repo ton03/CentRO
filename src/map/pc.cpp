@@ -1720,7 +1720,7 @@ bool pc_authok(struct map_session_data *sd, uint32 login_id2, time_t expiration_
 	if( !changing_mapservers ) {
 
 		if (battle_config.display_version == 1)
-			pc_show_version(sd);
+			//pc_show_version(sd);
 
 		// Message of the Day [Valaris]
 		for(i=0; i < MOTD_LINE_SIZE && motd_text[i][0]; i++) {

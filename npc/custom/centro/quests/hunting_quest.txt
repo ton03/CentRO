@@ -1,0 +1,466 @@
+//===== rAthena Script =======================================
+//= saders Hunting Quest
+//===== By: ==================================================
+//= Sader1992 (edited by tonn)
+//https://rathena.org/board/profile/30766-sader1992/
+//===== Current Version: =====================================
+//= 5.2
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//https://rathena.org/board/files/file/3579-saders-hunting-quest/
+//https://github.com/sader1992/sader_scripts
+//===== Description: =========================================
+// @reloadnpc npc/custom/centro/quests/hunting_quest.txt
+//============================================================
+//============================================================
+
+// CD (int) - cooldown in minutes
+// COM (bool) - did complete quest
+// CC (int) - current count
+// C (int) - total count
+// ID (int) - mob id
+// IRD (int) - item reward
+// CRD (int) - count reward
+// THB (int) - total hunting badges
+
+//-	pointshop	Hunting_Quest_Shop	-1,#HUNT_Q_POINTS,512:1; // Account Based Shop
+//-	pointshop	Hunting_Quest_Shop	-1,HUNT_Q_POINTS,512:1; // Character Based Shop
+centro,127,144,4	script	Hunting Quest	832,{
+  function Ac;
+  function CooldownStr;
+
+  .@name$ ="[ ^9933CCHunting Quest^000000 ]";
+
+  mes .@name$;
+  mes "Your quest progress:";
+
+  for (.@i = 0; .@i < getarraysize(.CataName$); .@i++) {
+    // Did complete quest?
+    if (getd(Ac() + "COM_" + .@i)) {
+      mes "^339955" + .CataName$[.@i] + "^000000: ^339955Done!^000000";
+
+      // Add points
+      if (.CataRP[.@i] > 0) {
+        .@pts = getd(Ac() + "POINTS") + .CataRP[.@i];
+        setd(Ac() + "POINTS", .@pts);
+        dispbottom "You received " + .CataRP[.@i] + " point" + (.CataRP[.@i] > 1 ? "s" : "") +
+          " by finishing the hunting quest. You now have " + .@pts + " point" + (.@pts > 1 ? "s" : "") + ".";
+      }
+
+      // Add EXP
+      if (.CataBXP[.@i] || .CataJXP[.@i]) {
+        if (.ExpServerRate) {
+          getexp .CataBXP[.@i], .CataJXP[.@i];
+        } else {
+          getexp2 .CataBXP[.@i], .CataJXP[.@i];
+        }
+      }
+
+      // Get item reward
+      if (getd(".IRD_" + .@i)) {
+        for (.@j = 0; .@j < getarraysize(getd(".IRD_" + .@i)); .@j++) {
+          .@rewardhb = getd(".CRD_" + .@i + "[" + .@j + "]");
+          getitem(getd(".IRD_" + .@i + "[" + .@j + "]"), .@rewardhb);
+
+          // Log total HB to DB
+          .@totalhb = getd("#" + Ac() + "THB_" + .@i) || 0;
+          setd("#" + Ac() + "THB_" + .@i, .@totalhb + .@rewardhb);
+        }
+      }
+
+      // Set variables
+      setd(
+        Ac() + "CD_" + .@i,
+        getgmlevel() >= .GMTestGroup
+          ? gettimetick(2) + 60 // 1 min cooldown for GMs (<= 10)
+          : gettimetick(2) + (.CataCD[.@i] * 60)
+      ); // Apply cooldown in minutes
+      setd(Ac() + "COM_" + .@i, false);
+      setd(Ac() + "ID_" + .@i, 0);
+      setd(Ac() + "C_" + .@i, 0);
+      setd(Ac() + "CC_" + .@i, 0);
+
+      continue;
+    }
+
+    // Show category cooldown
+    .@CD = getd(Ac() + "CD_" + .@i);
+    if (.@CD > gettimetick(2)) {
+      mes "^339955" + .CataName$[.@i] + "^000000: ^FF0000" + CooldownStr(.@CD) + "^000000";
+      continue;
+    }
+
+    // Not yet complete, show progress
+    if (getd(Ac() + "C_" + .@i)) {
+      mes "^339955" + .CataName$[.@i] + "^000000: " +
+          strmobinfo(1, getd(Ac() + "ID_" + .@i)) +
+          " (^3355FF" + getd(Ac() + "CC_" + .@i) + " / " + getd(Ac() + "C_" + .@i) + "^000000)";
+      continue;
+    }
+
+    // Not in progress nor cooldown
+    mes "^339955" + .CataName$[.@i] + "^000000: ^888888Inactive^000000";
+  }
+
+  // Select category
+  .@s1 = select(implode(.CataName$,":")) - 1;
+  clear;
+
+  // Cooldown
+  .@CD = getd(Ac() + "CD_" + .@s1);
+  if (.@CD > gettimetick(2)) {
+    mes .@name$;
+    mes "This quest is still in cooldown.";
+    mes "Come back after";
+    mes "^FF0000" + CooldownStr(.@CD) + "^000000";
+    mes " ";
+    mes "Remember, these quests are";
+    mes "^FF0000character-based^000000.";
+    end;
+  }
+
+  // Show quest progress
+  if (getd(Ac() + "ID_" + .@s1)) {
+    mes .@name$;
+    mes "^339955" + .CataName$[.@s1] + ": ^000000" +
+        strmobinfo(1, getd(Ac() + "ID_" + .@s1)) +
+        " (^3355FF" + getd(Ac() + "CC_" + .@s1) + " / " + getd(Ac() + "C_" + .@s1) + "^000000)";
+    // mes "Reward: ^DD8800" + getd(".CRD_" + .@s1 + "[0]") + " Arsenal Hunting Badges^000000";
+    mes " ";
+    mes "Would you like to";
+    mes "abandon this quest?";
+    if (select("No:Yes") == 1) {
+      end;
+    }
+
+    // Abandon cooldown
+    .@acd = .CoolDownOnDelete * (.@s1 + 1);
+
+    // About to abandon
+    clear;
+    mes .@name$;
+    mes "By abandoning the quest,";
+    mes "you won't get any reward";
+    mes "and a ^FF0000" + .@acd + " minute cooldown^000000";
+    mes "will be applied!";
+    mes " ";
+    mes "Are you sure?";
+    if (select("No:Yes") == 1) {
+      end;
+    }
+
+    // Abandoned
+    clear;
+    setd(
+      Ac() + "CD_" + .@s1,
+      getgmlevel() >= .GMTestGroup
+        ? gettimetick(2) + 60 // 1 min cooldown for GMs (<= 10)
+        : gettimetick(2) + (.@acd * 60)
+    ); // Apply cooldown
+    setd(Ac() + "ID_" + .@s1, 0);
+    setd(Ac() + "C_" + .@s1, 0);
+    setd(Ac() + "CC_" + .@s1, 0);
+    
+    mes .@name$;
+    mes "The quest has been abandoned!";
+    end;
+  }
+
+	if (BaseLevel < .CataMN_L[.@s1] || BaseLevel > .CataMX_L[.@s1]) {
+    mes .@name$;
+		mes "You need to be between";
+    mes "level " + .CataMN_L[.@s1] + " and " + .CataMX_L[.@s1] + " to get this quest!";
+		end;
+	}
+
+  mes .@name$;
+  mes "Would you like to start a quest?";
+  if (select("Yes:No") == 2) {
+    end;
+  }
+
+  // Prepare quest
+  copyarray(.@mid, getd(".m_id_" + .@s1), getarraysize(getd(".m_id_" + .@s1)));
+  .@r = rand(getarraysize(.@mid));
+  copyarray(.@mmn, getd(".m_mn_" + .@s1), getarraysize(getd(".m_mn_" + .@s1)));
+  copyarray(.@mmx, getd(".m_mx_" + .@s1), getarraysize(getd(".m_mx_" + .@s1)));
+
+  // Monster ID
+  setd(Ac() + "ID_" + .@s1, .@mid[.@r]);
+  // Randomize total count
+  setd(Ac() + "C_" + .@s1, rand(getd(".m_mn_" + .@s1 + "[" + .@r + "]"), getd(".m_mx_" + .@s1 + "[" + .@r + "]")));
+  // Set count to 0
+  setd(Ac() + "CC_" + .@s1, 0);
+
+  mes "Hunt: ^3355FF" + getd(Ac() + "C_" + .@s1) + " " + strmobinfo(1, getd(Ac() + "ID_" + .@s1)) + "^000000";
+  // mes "Reward: ^DD8800" + getd(".CRD_" + .@s1 + "[0]") + " Arsenal Hunting Badges^000000";
+end;
+
+OnNPCKillEvent:
+  for (.@i = 0; .@i < getarraysize(.CataName$); .@i++) {
+    // Killed the right mob in this category
+    if (getd(Ac() + "ID_" + .@i) == killedrid && !getd(Ac() + "COM_" + .@i)) {
+      setd(Ac() + "CC_" + .@i, getd(Ac() + "CC_" + .@i) + 1);
+      message strcharinfo(0), strmobinfo(1, getd(Ac() + "ID_" + .@i)) + " (" + getd(Ac() + "CC_" + .@i) + " / " + getd(Ac() + "C_" + .@i) + ")";
+
+      // Done?
+      if (getd(Ac() + "CC_" + .@i) >= getd(Ac() + "C_" + .@i)) {
+        setd(Ac() + "COM_" + .@i, true);
+        message strcharinfo(0), strmobinfo(1, getd(Ac() + "ID_" + .@i)) + ": Done!";
+      }
+    }
+  }
+end;
+
+OnHuntingCheck:
+  dispbottom "[ Hunting Quest ]",0xFFD64F;
+  for (.@i = 0; .@i < getarraysize(.CataName$); .@i++) {
+    // If complete
+    if (getd(Ac() + "COM_" + .@i)) {
+      dispbottom .CataName$[.@i] + ": Done", 0xFFE987;
+      continue;
+    }
+
+    // If cooldown
+    .@CD = getd(Ac() + "CD_" + .@i);
+    if (.@CD > gettimetick(2)) {
+      dispbottom .CataName$[.@i] + ": " + CooldownStr(.@CD) + " cooldown", 0xFFE987;
+      continue;
+    }
+
+    // If in progress
+    if (getd(Ac() + "C_" + .@i) > 0) {
+      dispbottom .CataName$[.@i] + ": " + strmobinfo(1,getd(Ac() + "ID_" + .@i)) +
+                 " (" + getd(Ac() + "CC_" + .@i) + " / " + getd(Ac() + "C_" + .@i) + ")", 0xFFE987;
+      continue;
+    }
+
+    // Nothing
+    dispbottom .CataName$[.@i] + ": Inactive", 0xFFE987;
+  }
+end;
+
+function Ac {
+  if (.AccountBase) {
+    return "#" + .VariableName$;
+  }
+  return .VariableName$;
+}
+
+function AddCata {
+  .@s = getarraysize(.CataName$);
+  set getarg(1),.@s;
+  .CataName$[.@s] = getarg(0);
+  .CataMN_L[.@s] = getarg(2);
+  .CataMX_L[.@s] = getarg(3);
+  .CataCD[.@s] = getarg(4);
+  .CataBXP[.@s] = getarg(5);
+  .CataJXP[.@s] = getarg(6);
+  .CataRP[.@s] = getarg(7);
+  // Item rewards
+  for (.@i = 8; .@i < getargcount(); .@i += 2) {
+    .@s2 = getarraysize(getd(".IRD_" + .@s));
+    setd ".IRD_" + .@s + "[" + .@s2 + "]", getarg(.@i);
+    setd ".CRD_" + .@s + "[" + .@s2 + "]", getarg(.@i + 1);
+  }
+  return;
+}
+
+function AddMob {
+  .@s = getarraysize(getd(".m_id_" + getarg(0)));
+  setd ".m_id_" + getarg(0) + "[" + .@s + "]",getarg(1);
+  setd ".m_mn_" + getarg(0) + "[" + .@s + "]",getarg(2);
+  setd ".m_mx_" + getarg(0) + "[" + .@s + "]",getarg(3);
+  return;
+}
+
+// Readable cooldown
+function CooldownStr {
+  .@r$ = ""; // result
+  .@t = getarg(0) - gettimetick(2); // time difference in seconds
+  
+  // Show seconds only when it's less than a minute
+  if (.@t < 60) {
+    return .@t + " second" + (.@t > 1 ? "s" : "");
+  }
+
+  // Days
+  .@d = .@t / 60 / 60 / 24;
+  if (.@d) {
+    .@r$ += .@d + " day" + (.@d > 1 ? "s" : "");
+  }
+
+  // Hours
+  .@h = (.@t / 60 / 60) % 24;
+  if (.@h) {
+    .@r$ += (.@r$ ? ", " : "") + .@h + " hour" + (.@h > 1 ? "s" : "");
+  }
+
+  // Minutes
+  .@m = (.@t / 60) % 60;
+  if (.@m) {
+    .@r$ += (.@r$ ? ", " : "") + .@m + " minute" + (.@m > 1 ? "s" : "");
+  }
+
+  return .@r$;
+}
+
+OnInit:
+  .AccountBase = false; // account based or character based
+  .ExpServerRate = true; // get exp according to the server rate?
+  .CoolDownOnDelete = 30; // cooldown in minutes upon deleting the quest
+  .GMTestGroup = 10; // minimum group for GM testers
+	.VariableName$ = "HUNT_Q_";
+  bindatcmd("huntingquest", strnpcinfo(3) + "::OnHuntingCheck", 0, 99);
+  freeloop(1);
+
+  // You can add as much categories as you want!
+  // recommended not more then 25!
+  // AddCata(<"name">,<.var>,<mini level>,<max level>,<cooldown in minutes>,<base exp reward>,<job exp reward>,<point reward>,<ITEM ID>,<COUNT>{,<ITEM ID>,<COUNT>{,<ITEM ID>,<COUNT>}})
+
+  AddCata("Easy", .Easy, 1, 99, 12 * 60, 0, 0, 0, 7729, 5);
+  AddCata("Medium", .Medium, 1, 99, 12 * 60, 0, 0, 0, 7729, 12);
+  AddCata("Hard", .Hard, 1, 99, 12 * 60, 0, 0, 0, 7729, 20);
+  AddCata("Insane", .Insane, 1, 99, 12 * 60, 0, 0, 0, 7729, 30);
+  
+  // You can add as much mobs as you want!
+  // AddMob(<.var>,<mob id>,<min count>,<max count>);
+
+  // Easy
+  AddMob(.Easy, 1400, 98, 118); // Karakasa
+  AddMob(.Easy, 1151, 82, 98); // Myst
+  AddMob(.Easy, 1040, 106, 127); // Golem
+  AddMob(.Easy, 1680, 126, 151); // Hill Wind
+  AddMob(.Easy, 1499, 39, 47); // Wootan Fighter
+  AddMob(.Easy, 1209, 78, 94); // Cramp
+  AddMob(.Easy, 1616, 105, 126); // Pitman
+  AddMob(.Easy, 1500, 84, 101); // Parasite
+  AddMob(.Easy, 1836, 29, 35); // Magmaring
+  AddMob(.Easy, 1404, 32, 38); // Miyabi Ningyo
+  AddMob(.Easy, 1687, 104, 125); // Grove
+  AddMob(.Easy, 1503, 29, 35); // Gibbet
+  AddMob(.Easy, 1180, 77, 92); // Nine Tail
+  AddMob(.Easy, 1493, 102, 122); // Dryad
+  AddMob(.Easy, 1322, 57, 68); // Spring Rabbit
+  AddMob(.Easy, 1512, 57, 68); // Hyegun
+  AddMob(.Easy, 1584, 100, 120); // Tamruan
+  AddMob(.Easy, 1193, 97, 116); // Alarm
+  AddMob(.Easy, 1315, 71, 85); // Assaulter
+  AddMob(.Easy, 1381, 21, 25); // Grizzly
+  AddMob(.Easy, 1773, 86, 103); // Hodremlin
+  AddMob(.Easy, 1148, 85, 102); // Medusa
+  // AddMob(.Easy, 1737, 17, 20); // Aliza
+  AddMob(.Easy, 1379, 50, 60); // Nightmare Terror
+  AddMob(.Easy, 1098, 26, 31); // Anubis
+  AddMob(.Easy, 1777, 61, 73); // Ice Titan
+  AddMob(.Easy, 1716, 52, 62); // Acidus
+  AddMob(.Easy, 1297, 23, 28); // Ancient Mummy
+  // AddMob(.Easy, 1864, 62, 74); // Zombie Slaughter
+  AddMob(.Easy, 1310, 53, 64); // Majoruros
+  // AddMob(.Easy, 1753, 22, 26); // Frus
+  // AddMob(.Easy, 1752, 21, 25); // Skogul
+  
+  // Medium
+  AddMob(.Medium, 1400, 196, 274); // Karakasa
+  AddMob(.Medium, 1151, 164, 230); // Myst
+  AddMob(.Medium, 1040, 211, 295); // Golem
+  AddMob(.Medium, 1680, 252, 353); // Hill Wind
+  AddMob(.Medium, 1499, 78, 109); // Wootan Fighter
+  AddMob(.Medium, 1209, 155, 217); // Cramp
+  AddMob(.Medium, 1616, 209, 293); // Pitman
+  AddMob(.Medium, 1500, 167, 234); // Parasite
+  AddMob(.Medium, 1836, 58, 81); // Magmaring
+  AddMob(.Medium, 1404, 63, 88); // Miyabi Ningyo
+  AddMob(.Medium, 1687, 207, 290); // Grove
+  AddMob(.Medium, 1503, 58, 81); // Gibbet
+  AddMob(.Medium, 1180, 154, 216); // Nine Tail
+  AddMob(.Medium, 1493, 204, 286); // Dryad
+  AddMob(.Medium, 1322, 114, 160); // Spring Rabbit
+  AddMob(.Medium, 1512, 113, 158); // Hyegun
+  AddMob(.Medium, 1584, 199, 279); // Tamruan
+  AddMob(.Medium, 1193, 193, 270); // Alarm
+  AddMob(.Medium, 1315, 141, 197); // Assaulter
+  AddMob(.Medium, 1381, 42, 59); // Grizzly
+  AddMob(.Medium, 1773, 172, 241); // Hodremlin
+  AddMob(.Medium, 1148, 169, 237); // Medusa
+  // AddMob(.Medium, 1737, 34, 48); // Aliza
+  AddMob(.Medium, 1379, 100, 140); // Nightmare Terror
+  AddMob(.Medium, 1098, 51, 71); // Anubis
+  AddMob(.Medium, 1777, 122, 171); // Ice Titan
+  AddMob(.Medium, 1716, 104, 146); // Acidus
+  AddMob(.Medium, 1297, 46, 64); // Ancient Mummy
+  // AddMob(.Medium, 1864, 123, 172); // Zombie Slaughter
+  AddMob(.Medium, 1310, 105, 147); // Majoruros
+  // AddMob(.Medium, 1753, 43, 60); // Frus
+  // AddMob(.Medium, 1752, 42, 59); // Skogul
+  
+  // Hard
+  AddMob(.Hard, 1400, 294, 441); // Karakasa
+  AddMob(.Hard, 1151, 246, 369); // Myst
+  AddMob(.Hard, 1040, 316, 474); // Golem
+  AddMob(.Hard, 1680, 378, 567); // Hill Wind
+  AddMob(.Hard, 1499, 117, 176); // Wootan Fighter
+  AddMob(.Hard, 1209, 233, 350); // Cramp
+  AddMob(.Hard, 1616, 313, 470); // Pitman
+  AddMob(.Hard, 1500, 250, 375); // Parasite
+  AddMob(.Hard, 1836, 87, 131); // Magmaring
+  AddMob(.Hard, 1404, 94, 141); // Miyabi Ningyo
+  AddMob(.Hard, 1687, 311, 467); // Grove
+  AddMob(.Hard, 1503, 86, 129); // Gibbet
+  AddMob(.Hard, 1180, 231, 347); // Nine Tail
+  AddMob(.Hard, 1493, 306, 459); // Dryad
+  AddMob(.Hard, 1322, 170, 255); // Spring Rabbit
+  AddMob(.Hard, 1512, 169, 254); // Hyegun
+  AddMob(.Hard, 1584, 298, 447); // Tamruan
+  AddMob(.Hard, 1193, 289, 434); // Alarm
+  AddMob(.Hard, 1315, 211, 317); // Assaulter
+  AddMob(.Hard, 1381, 63, 95); // Grizzly
+  AddMob(.Hard, 1773, 258, 387); // Hodremlin
+  AddMob(.Hard, 1148, 254, 381); // Medusa
+  // AddMob(.Hard, 1737, 51, 77); // Aliza
+  AddMob(.Hard, 1379, 150, 225); // Nightmare Terror
+  AddMob(.Hard, 1098, 76, 114); // Anubis
+  AddMob(.Hard, 1777, 182, 273); // Ice Titan
+  AddMob(.Hard, 1716, 155, 233); // Acidus
+  AddMob(.Hard, 1297, 68, 102); // Ancient Mummy
+  // AddMob(.Hard, 1864, 184, 276); // Zombie Slaughter
+  AddMob(.Hard, 1310, 157, 236); // Majoruros
+  // AddMob(.Hard, 1753, 64, 96); // Frus
+  // AddMob(.Hard, 1752, 62, 93); // Skogul
+  
+  // Insane
+  AddMob(.Insane, 1400, 489, 734); // Karakasa
+  AddMob(.Insane, 1151, 409, 614); // Myst
+  AddMob(.Insane, 1040, 526, 789); // Golem
+  AddMob(.Insane, 1680, 629, 944); // Hill Wind
+  AddMob(.Insane, 1499, 194, 291); // Wootan Fighter
+  AddMob(.Insane, 1209, 387, 581); // Cramp
+  AddMob(.Insane, 1616, 522, 783); // Pitman
+  AddMob(.Insane, 1500, 417, 626); // Parasite
+  AddMob(.Insane, 1836, 145, 218); // Magmaring
+  AddMob(.Insane, 1404, 156, 234); // Miyabi Ningyo
+  AddMob(.Insane, 1687, 517, 776); // Grove
+  AddMob(.Insane, 1503, 144, 216); // Gibbet
+  AddMob(.Insane, 1180, 385, 578); // Nine Tail
+  AddMob(.Insane, 1493, 510, 765); // Dryad
+  AddMob(.Insane, 1322, 283, 425); // Spring Rabbit
+  AddMob(.Insane, 1512, 282, 423); // Hyegun
+  AddMob(.Insane, 1584, 497, 746); // Tamruan
+  AddMob(.Insane, 1193, 481, 722); // Alarm
+  AddMob(.Insane, 1315, 351, 527); // Assaulter
+  AddMob(.Insane, 1381, 105, 158); // Grizzly
+  AddMob(.Insane, 1773, 430, 645); // Hodremlin
+  AddMob(.Insane, 1148, 423, 635); // Medusa
+  // AddMob(.Insane, 1737, 84, 126); // Aliza
+  AddMob(.Insane, 1379, 250, 375); // Nightmare Terror
+  AddMob(.Insane, 1098, 127, 191); // Anubis
+  AddMob(.Insane, 1777, 304, 456); // Ice Titan
+  AddMob(.Insane, 1716, 259, 389); // Acidus
+  AddMob(.Insane, 1297, 113, 170); // Ancient Mummy
+  // AddMob(.Insane, 1864, 306, 459); // Zombie Slaughter
+  AddMob(.Insane, 1310, 261, 392); // Majoruros
+  // AddMob(.Insane, 1753, 106, 159); // Frus
+  // AddMob(.Insane, 1752, 104, 156); // Skogul
+
+end;
+}
