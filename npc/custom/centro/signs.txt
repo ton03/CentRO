@@ -1,0 +1,41 @@
+// Refinery
+centro,112,193,0	script	Refinery#sign	837,{
+  end;
+OnInit:
+  waitingroom "Refinery",0;
+}
+
+// Church
+centro,96,201,6	script	Church#sign	837,{
+  end;
+OnInit:
+  waitingroom "Church",0;
+}
+
+// Job changer / Plat skills
+centro,113,230,5	script	Job Change#sign	837,{
+  end;
+OnInit:
+  waitingroom "Job Change",0;
+}
+
+// Equipment
+centro,141,236,4	script	Equipment#sign	837,{
+  end;
+OnInit:
+  waitingroom "Equipment",0;
+}
+
+// Tavern
+centro,166,238,4	script	Tavern#sign	837,{
+  end;
+OnInit:
+  waitingroom "Tavern",0;
+}
+
+// PvP related
+centro,139,265,6	script	BG/PvP#sign	837,{
+  end;
+OnInit:
+  waitingroom "BG / PvP",0;
+}

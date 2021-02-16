@@ -1,0 +1,31 @@
+// --------------------------------------------------------------
+// CentRO Town
+// --------------------------------------------------------------
+
+// Tavern
+centro,170,236,0	warp	totavern	3,2,cent_in01,58,182
+cent_in01,58,179,0	warp	tocent#tav	3,2,centro,168,233
+
+// Platinum Skills
+centro,117,232,0	warp	toplat	3,2,cent_in02,92,114
+cent_in02,92,110,0	warp	tocent#plat	3,2,centro,117,228
+
+// Equipment
+centro,137,238,0	warp	toequip	3,2,cent_in01,118,114
+cent_in01,118,109,0	warp	tocent#equ	3,2,centro,137,234
+
+// Refinery / Blacksmith
+centro,107,190,0	warp	toref	3,2,cent_in01,178,268
+cent_in01,178,264,0	warp	tocent#ref	3,2,centro,107,194
+
+// Church
+centro,95,205,0	warp	tochc	3,2,cent_chc,102,64
+cent_chc,102,60,0	warp	tocent#chc	3,2,centro,99,205
+
+// Windmill
+centro,178,154,0	warp	towmill	3,2,cent_wmill,20,12
+cent_wmill,20,8,0	warp	tocent#wmill	3,2,centro,173,152
+
+// BG Room
+centro,143,266,0	warp	tobg	3,2,ma_in01,14,24
+ma_in01,8,24,0	warp	tocent#bg	3,2,centro,143,262
