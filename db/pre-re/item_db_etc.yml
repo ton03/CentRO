@@ -2547,6 +2547,7 @@ Body:
       Armor: true
     Flags:
       BuyingStore: true
+      DropEffect: YELLOW_PILLAR
     Script: |
       bonus bLuk,2;
       bonus bFlee2,1;
