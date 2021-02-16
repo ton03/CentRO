@@ -161,7 +161,7 @@ OnInit:
 }
 
 // NPC Lists
-centro,179,204,6	script	Stylist#main	509,{
+centro,179,204,4	script	Stylist#main	509,{
 	doevent "Stylist::OnTalk";
 }
 //prontera,144,281,6	duplicate(Adv. Stylist#main)	Adv. Stylist#1	878
