@@ -10,7 +10,7 @@ function	script	ValueConvert	{
 	return .@num$;
 }
 
--	script	Stylist	-1,{
+-	script	Free Stylist	-1,{
 OnTalk:
 	mes "[^0055FFCentro Non-Premium Stylist^000000]";
 	mes "Let me style you up!";
@@ -162,7 +162,7 @@ OnInit:
 
 // NPC Lists
 centro,177,207,4	script	Stylist#notmain	509,{
-	doevent "Stylist::OnTalk";
+	doevent "Free Stylist::OnTalk";
 }
 //prontera,144,281,6	duplicate(Adv. Stylist#main)	Adv. Stylist#1	878
 //prontera,115,181,5	duplicate(Adv. Stylist#main)	Adv. Stylist#2	878
