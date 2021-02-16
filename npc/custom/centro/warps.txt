@@ -6,8 +6,8 @@
 centro,170,236,0	warp	totavern	3,2,cent_in01,58,182
 cent_in01,58,179,0	warp	tocent#tav	3,2,centro,168,233
 
-cent_in01,77,188,0	warp	tocent#tav1-1	3,2,centro,82,188
-cent_in01,82,188,0	warp	tocent#tav1-2	3,2,centro,77,188
+cent_in01,78,188,0	warp	tocent#tav1-1	3,2,cent_in01,81,188
+cent_in01,81,188,0	warp	tocent#tav1-2	3,2,cent_in01,78,188
 
 // Platinum Skills
 centro,117,232,0	warp	toplat	3,2,cent_in02,92,114
