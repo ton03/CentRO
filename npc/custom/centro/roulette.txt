@@ -1,0 +1,3 @@
+cent_in01,98,189,4	script	Roulette	563,{
+	open_roulette(getcharid(0));
+}
