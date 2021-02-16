@@ -1,5 +1,3 @@
-
-
 // credits to Annieruru
 function	script	ValueConvert	{
 	set .@num, atoi(""+getarg(0));
@@ -12,16 +10,13 @@ function	script	ValueConvert	{
 	return .@num$;
 }
 
-
 -	script	Stylist	-1,{
-
-
 OnTalk:
-	mes "[^0055FF ::: Adv. Stylist ::: ^000000]";
-	mes "I can change your appearance.";
+	mes "[^0055FFCentro Stylist^000000]";
+	mes "Let me style you up!";
 	if( .cost_size ){
 		mes " ";
-		mes "^777777[ SERVICES PAYMENT ]^000000";
+		mes "^777777Payment:^000000";
 		for( .@i = 0; .@i < .menu_size; .@i++ )
 			if( .npc_mode & ( 1 << .@i ) )
 				if( .cost[.@i] )
@@ -163,16 +158,12 @@ OnInit:
 		.currency_name$[.@i] = ( ( !.@atoi || getitemname( .@atoi ) == "null" )? .currency$[.@i]:getitemname( .@atoi ) );
 	}
 	end;
-
 }
 
-
 // NPC Lists
-prontera,199,181,8	script	Adv. Stylist#main	878,{
+centro,179,204,4	script	Stylist#main	509,{
 	doevent "Stylist::OnTalk";
 }
 //prontera,144,281,6	duplicate(Adv. Stylist#main)	Adv. Stylist#1	878
 //prontera,115,181,5	duplicate(Adv. Stylist#main)	Adv. Stylist#2	878
 //prontera,115,181,5	duplicate(Adv. Stylist#main)	Adv. Stylist#3	878
-
-

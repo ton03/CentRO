@@ -1,141 +1,18 @@
-//==============WARPS TO INS================//
-//TAVERN
-centro,170,236,0	warp	totavern	3,2,cent_in01,58,182    //GOING TO THE TAVERN
-cent_in01,58,179,0	warp	tocent#tav	3,2,centro,168,233      //GOING TO THE BACK TO TOWN
-//PLATINUM SKILLS
-centro,117,232,0	warp	toplat	3,2,cent_in02,92,114        //GOING TO THE PLATINUM
-cent_in02,92,110,0	warp	tocent#plat	3,2,centro,117,228      //GOING TO THE BACK TO TOWN
-//EQUIPMENT
-centro,137,238,0	warp	toequip	3,2,cent_in01,118,114       //GOING TO THE EQUIPMENT
-cent_in01,118,109,0	warp	tocent#equ	3,2,centro,137,234      //GOING TO THE BACK TO TOWN
-//REFINERY / BLACKSMITH
-centro,107,190,0	warp	toref	3,2,cent_in01,178,268       //GOING TO THE REFINERY
-cent_in01,178,264,0	warp	tocent#ref	3,2,centro,107,194      //GOING TO THE BACK TO TOWN
-//CHURCH
-centro,95,205,0	warp	tochc	3,2,cent_chc,102,64             //GOING TO THE CHURCH
-cent_chc,102,60,0	warp	tocent#chc	3,2,centro,99,205       //GOING TO THE BACK TO TOWN
-//WINDMILL
-centro,178,154,0	warp	towmill	3,2,cent_wmill,20,12        //GOING TO THE WMILL
-cent_wmill,20,8,0	warp	tocent#wmill	3,2,centro,173,152  //GOING TO THE BACK TO TOWN
-//BG ROOM
-centro,143,266,0	warp	tobg	3,2,ma_in01,14,24           //GOING TO THE BG PVP
-ma_in01,8,24,0	warp	tocent#bg	3,2,centro,143,262   		//GOING TO THE BACK TO TOWN
-
-
-
-
-//==============NPCS / MERCHANTS=================//
-//FREEBIES/GUIDE NPC
+// Freebies / Guide NPC
 centro,226,54,5	script	Beach Boi	10179,{
-cutin "beachboy.bmp",2;
-mes "[Girl standing near the door]";
-mes "";
-mes "Please refrain from touching my little sister!";
-next;
-goto s_end;
+	cutin "beachboy.bmp",2;
+	mes "[Girl standing near the door]";
+	mes "";
+	mes "Please refrain from touching my little sister!";
+	next;
+	goto s_end;
 
 s_end:
-cutin "beachboy.bmp",255;
-mes "Come here, let's talk.";
-close;
+	cutin "beachboy.bmp",255;
+	mes "Come here, let's talk.";
+	close;
 
 OnTouch:
-npctalk "*Snore*";
-end;
-}
-
-centro,164,182,0	shop	Vendor from Milk Ranch#centro	90,519:-1   //MILK Vendor
-centro,182,198,0	shop	Butcher#centro	87,517:-1,528:-1            //BUTCHER
-centro,184,191,3	shop	Flower Lady#centro	90,712:-1,744:-1        //FLOWER LADY
-centro,182,181,2	shop	Pet Groomer#centro	125,537:-1,643:-1,10013:-1,10014:-1,554:-1,6114:-1,6113:-1,6110:-1,6115:-1,6100:-1,6098:-1,6112:-1,6104:-1,6108:-1,6111:-1,6095:-1,6099:-1,6096:-1,6097:-1,6094:-1      //PET STORE
-
-//===============KAFRA===============//
-
-
-centro,111,142,5	script	Kafra Employee::kaf_centro	10500,{
-	cutin "cent_kaf01",2;
-	callfunc "F_KafSet";
-	mes "[Kafra Employee]";
-	mes "Welcome to the";
-	mes "Kafra Corporation~";
-	mes "The Kafra Services are";
-	mes "always here to support";
-	mes "you. So how can I be";
-	mes "of service today?";
-	callfunc "F_Kafra",5,0,0,40,800;
-	savepoint "centro",119,143,1,1;
-	callfunc "F_KafEnd",0,1,"in the city of Centro";
-
-}
-
-centro,160,264,4	script	Kafra Employee::kaf_centropvp	10501,{
-	cutin "cent_kaf02",2;
-	callfunc "F_KafSet";
-	mes "[Kafra Employee]";
-	mes "Welcome to the";
-	mes "Kafra Corporation~";
-	mes "The Kafra Services are";
-	mes "always here to support";
-	mes "you. So how can I be";
-	mes "of service today?";
-	callfunc "F_Kafra",5,0,0,40,800;
-	savepoint "centro",148,258,1,1;
-	callfunc "F_KafEnd",0,1,"in the city of Centro";
-
-}
-
-//==============SIGNBOARDS==============//
-
-//REFINERY
-centro,112,193,0	script	Refinery#sign	837,{
-end;
-
-OnInit:
-
-waitingroom "Refinery!",0;
-}
-
-//CHURCH
-centro,96,201,6	script	Church#sign	837,{
-end;
-
-OnInit:
-
-waitingroom "Church!",0;
-}
-
-//JOB CHANGER / PLAT SKILLS
-centro,113,230,5	script	Job Change#sign	837,{
-end;
-
-OnInit:
-
-waitingroom "Job Change!",0;
-}
-
-//Equipment
-centro,141,236,4	script	Equipment#sign	837,{
-end;
-
-OnInit:
-
-waitingroom "Equipment!",0;
-}
-
-//Tavern
-centro,166,238,4	script	Tavern#sign	837,{
-end;
-
-OnInit:
-
-waitingroom "Tavern!",0;
-}
-
-//PvP Related
-centro,139,265,6	script	BG/PvP#sign	837,{
-end;
-
-OnInit:
-
-waitingroom "BG / PvP!",0;
+	npctalk "*Snore*";
+	end;
 }
