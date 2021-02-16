@@ -42863,7 +42863,7 @@ Body:
     Buy: 20
     Weight: 10
     Script: |
-      RouletteBronze++;
+      vip_time(60*24*30);
   - Id: 39001
     AegisName: Cent_VIP_7D
     Name: Cent VIP 7D
@@ -42888,3 +42888,27 @@ Body:
     Weight: 10
     Script: |
       vip_time(60*24);
+  - Id: 39004
+    AegisName: Bronze_Roulette_Coin
+    Name: Bronze Roulette Coin
+    Type: Healing
+    Buy: 20
+    Weight: 10
+    Script: |
+      RouletteBronze++;
+  - Id: 39005
+    AegisName: Silver_Roulette_Coin
+    Name: Silver Roulette Coin
+    Type: Healing
+    Buy: 20
+    Weight: 10
+    Script: |
+      RouletteSilver++; 
+  - Id: 39006
+    AegisName: Gold_Roulette_Coin
+    Name: Gold Roulette Coin
+    Type: Healing
+    Buy: 20
+    Weight: 10
+    Script: |
+      RouletteGold++; 
