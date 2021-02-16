@@ -42863,7 +42863,7 @@ Body:
     Buy: 20
     Weight: 10
     Script: |
-      vip_time(60*24*30);
+      RouletteBronze++;
   - Id: 39001
     AegisName: Cent_VIP_7D
     Name: Cent VIP 7D
